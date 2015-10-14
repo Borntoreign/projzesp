@@ -1,0 +1,49 @@
+/**
+* This file contains all the frontend-related build setup, like
+* - executing npm tasks
+* - executing bower tasks
+* - executing karma unit tests
+*
+* At some point, we may want to delegate some of these tasks to a proper task runner, such as grunt or gulp. For now
+* it should ok to keep it here.
+*/
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+apply plugin: 'com.moowork.node'
+apply plugin: 'com.moowork.gulp'
+
+task npmClean(type: Delete) {
+    delete 'node_modules'
+}
+
+task bowerClean(type: Delete) {
+    delete 'src/main/resources/public/bower_components'
+}
+
+task distClean(type: Delete) {
+    delete 'src/main/resources/public/dist'
+}
+
+task bowerInstall(type: Exec) {
+    inputs.file file('bower.json')
+    outputs.dir file('src/main/resources/public/bower_components/')
+
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine 'cmd', '/c', 'node_modules\\.bin\\bower', 'install'
+    } else {
+        commandLine './node_modules/.bin/bower', 'install'
+    }
+}
+
+gulp_process_scripts.dependsOn 'npmInstall'
+gulp_process_scripts.dependsOn 'bowerInstall'
+processResources.dependsOn gulp_process_scripts
+
+bowerInstall.shouldRunAfter 'npmInstall'
+
+
+build.dependsOn gulp_build
+gulp_build.dependsOn gulp_process_scripts
+
+jar.shouldRunAfter gulp_build
