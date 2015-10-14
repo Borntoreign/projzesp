@@ -1,12 +1,62 @@
+# Compiled source #
+###################
+*.com
 *.class
+*.dll
+*.exe
+*.o
+*.so
+bin
+target
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# WPA-project specific files #
+###################
+MANIFEST.MF
 
-# Package Files #
+# IDE specific files #
+######################
+.project
+.classpath
+.settings
+.springBeans
+*.iml
+*.ipr
+*.iws
+.idea
+.gradle
+build
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
 *.jar
-*.war
-*.ear
+*.rar
+*.tar
+*.zip
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# SVN #
+######################
+*.svn
+
+# OS generated files #
+######################
+.DS_Store?
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# frontend #
+####################
+node_modules
+bower_components
