@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar  build/libs/pl.lodz.p.carpooling-1.0.0-SNAPSHOT.jar
