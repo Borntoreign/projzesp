@@ -60,3 +60,6 @@ Thumbs.db
 ####################
 node_modules
 bower_components
+
+# Additional files
+!/gradle/wrapper/gradle-wrapper.jar
