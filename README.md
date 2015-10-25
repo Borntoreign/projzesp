@@ -1,5 +1,4 @@
-# projzesp
-## Carpooling - projektowanie zespołowe
+# Carpooling - projektowanie zespołowe [![Build Status](https://travis-ci.org/Borntoreign/projzesp.svg?branch=master)](https://travis-ci.org/Borntoreign/projzesp)
 
 ### Wymagane:
 - npm (path) https://nodejs.org/en/
