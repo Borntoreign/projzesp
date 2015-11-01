@@ -22,29 +22,49 @@ import static org.assertj.core.api.Assertions.assertThat;
 @WebAppConfiguration
 public class AccountServiceTest {
 
+    public static final String JKOWALSKI = "jkowalski";
+    public static final String PASSWORD = "password";
+    public static final String EMAIL = "email@gmail.com";
+    public static final String FIRST_NAME = "Jan";
+    public static final String LAST_NAME = "Kowalski";
+    public static final String CITY_NAME = "Lodz";
+    public static final String COUNTRY_NAME = "Poland";
+    public static final String PHONE_NUMBER = "555-555-555";
     @Autowired
     private AccountService accountService;
 
     @Test
-    public void shouldRegisterToDatabase() throws Exception {
+    public void shouldRegisterToDatabaseAndGetItBack() throws Exception {
         Account account = new Account();
-        account.setLogin("jkowalski");
-        account.setPassword("password");
+        account.setLogin(JKOWALSKI);
+        account.setPassword(PASSWORD);
         User user = new User();
-        user.setEmail("email@gmail.com");
-        user.setFirstName("Jan");
-        user.setLastName("Kowalski");
-        user.setPhoneNumber("555-555-555");
+        user.setEmail(EMAIL);
+        user.setFirstName(FIRST_NAME);
+        user.setLastName(LAST_NAME);
+        user.setPhoneNumber(PHONE_NUMBER);
         City city = new City();
-        city.setCityName("Lodz");
-        city.setCountryName("Poland");
+        city.setCityName(CITY_NAME);
+        city.setCountryName(COUNTRY_NAME);
         user.setCity(city);
         account.setUser(user);
 
         accountService.register(account);
 
-        Account jkowalski = accountService.findAccountByLogin("jkowalski");
+        Account jkowalski = accountService.findAccountByLogin(JKOWALSKI);
         assertThat(jkowalski).isNotNull();
+        assertThat(jkowalski.getLogin()).isEqualTo(JKOWALSKI);
+        assertThat(jkowalski.getPassword()).isEqualTo(PASSWORD);
+        User user1 = jkowalski.getUser();
+        assertThat(user1).isNotNull();
+        assertThat(user1.getEmail()).isEqualTo(EMAIL);
+        assertThat(user1.getPhoneNumber()).isEqualTo(PHONE_NUMBER);
+        assertThat(user1.getFirstName()).isEqualTo(FIRST_NAME);
+        assertThat(user1.getLastName()).isEqualTo(LAST_NAME);
+        City city1 = user1.getCity();
+        assertThat(city1).isNotNull();
+        assertThat(city1.getCityName()).isEqualTo(CITY_NAME);
+        assertThat(city1.getCountryName()).isEqualTo(COUNTRY_NAME);
     }
 
 }
