@@ -11,10 +11,10 @@ branches:
     - master
 git:
   submodules: false
-deploy:
-  provider: heroku
-  buildpack: https://github.com/heroku/heroku-buildpack-multi.git
-  api_key:
-    secure: Rhm7dM+oWiArPs4hR9eorUMwqj2IracLRzWoGDc2fbWh/N+0x6h6JaHHd7HNF6IzgggGWWp2uVHY+nBJnu+71gUDcLroiT27aTEIB7quqAX8SnaXQQyeGr3HTWlNgOLyQWhY0LSGxBvna5S4UiZ/gSaSIxArXxOXiDf42kg+tYe8oxV3JsyWsQyEY19f2OhlzPkb979vBI0IyXsZyiRIe8uyVKis7vQ6b7avibZ2x0zeD+ZnFAjYeYn3XGLsy4pcelUAiLCZiQN7BUT3Udy0t2DpU5DBynaWN3JEzSdFtAfrzU3hyCFsgCt1vJo7BrvbvAefqZS90cZclIRiJYMVhhPGEH2qB+QO53Ej8qG+KdkMqsiKSuV1V2ZSA+WOLDIY/j1q6nBxisst1CMt8/14/btGV/3SxPcnhU3ue+2r2Aq4mTU3B3L55WlQ+ns7VDl0wO9UPuxAA/qtSYVbmR7HnzzyGs8eDoK70/pKkXuRxT+Ol56tbgpySktPBz0/y5DPR7+YKI+8KRe2d5mzNdt6Vwe6omMb28DoRp8jjuHbsiTwB6ueeaRWvtlfCqQRud6tSP9aY7BqQuZvlQnCpUDmOhP1SicVmaKVPlA5Hgx0GdHkEXfNyMUZI/jJbZjZJ+v79BT9jBGDDYb8K/bhxAEC6/PQYXHUooiJ28PE+YCqiuo=
-  app:
-    master: carpooling-beta
+#deploy:
+#  provider: heroku
+#  buildpack: https://github.com/heroku/heroku-buildpack-multi.git
+#  api_key:
+#    secure: Rhm7dM+oWiArPs4hR9eorUMwqj2IracLRzWoGDc2fbWh/N+0x6h6JaHHd7HNF6IzgggGWWp2uVHY+nBJnu+71gUDcLroiT27aTEIB7quqAX8SnaXQQyeGr3HTWlNgOLyQWhY0LSGxBvna5S4UiZ/gSaSIxArXxOXiDf42kg+tYe8oxV3JsyWsQyEY19f2OhlzPkb979vBI0IyXsZyiRIe8uyVKis7vQ6b7avibZ2x0zeD+ZnFAjYeYn3XGLsy4pcelUAiLCZiQN7BUT3Udy0t2DpU5DBynaWN3JEzSdFtAfrzU3hyCFsgCt1vJo7BrvbvAefqZS90cZclIRiJYMVhhPGEH2qB+QO53Ej8qG+KdkMqsiKSuV1V2ZSA+WOLDIY/j1q6nBxisst1CMt8/14/btGV/3SxPcnhU3ue+2r2Aq4mTU3B3L55WlQ+ns7VDl0wO9UPuxAA/qtSYVbmR7HnzzyGs8eDoK70/pKkXuRxT+Ol56tbgpySktPBz0/y5DPR7+YKI+8KRe2d5mzNdt6Vwe6omMb28DoRp8jjuHbsiTwB6ueeaRWvtlfCqQRud6tSP9aY7BqQuZvlQnCpUDmOhP1SicVmaKVPlA5Hgx0GdHkEXfNyMUZI/jJbZjZJ+v79BT9jBGDDYb8K/bhxAEC6/PQYXHUooiJ28PE+YCqiuo=
+#  app:
+#    master: carpooling-beta
