@@ -1,22 +1,12 @@
 package pl.lodz.p.carpooling.user.account;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 /**
- * Created by Mateusz Surmanski on 01.11.15.
+ * Created by Mateusz Surmanski on 07.11.15.
  */
-@Service
-public class AccountService {
+public interface AccountService {
+    void register(Account account);
 
-    @Autowired
-    private AccountRepository accountRepository;
+    void register(String login, String password, String email, String firstName, String lastName);
 
-    public void register(Account account) {
-        accountRepository.save(account);
-    }
-
-    public Account findAccountByLogin(String login) {
-        return accountRepository.findAccountByLogin(login);
-    }
+    Account findAccountByLogin(String login);
 }

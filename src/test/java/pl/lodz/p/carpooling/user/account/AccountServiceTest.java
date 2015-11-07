@@ -1,6 +1,5 @@
 package pl.lodz.p.carpooling.user.account;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @WebAppConfiguration
 public class AccountServiceTest {
 
-    public static final String JKOWALSKI = "jkowalski";
+    public static final String USERNAME = "jkowalski";
     public static final String PASSWORD = "password";
     public static final String EMAIL = "email@gmail.com";
     public static final String FIRST_NAME = "Jan";
@@ -30,13 +29,14 @@ public class AccountServiceTest {
     public static final String CITY_NAME = "Lodz";
     public static final String COUNTRY_NAME = "Poland";
     public static final String PHONE_NUMBER = "555-555-555";
+
     @Autowired
     private AccountService accountService;
 
     @Test
     public void shouldRegisterToDatabaseAndGetItBack() throws Exception {
         Account account = new Account();
-        account.setLogin(JKOWALSKI);
+        account.setLogin(USERNAME);
         account.setPassword(PASSWORD);
         User user = new User();
         user.setEmail(EMAIL);
@@ -51,20 +51,20 @@ public class AccountServiceTest {
 
         accountService.register(account);
 
-        Account jkowalski = accountService.findAccountByLogin(JKOWALSKI);
-        assertThat(jkowalski).isNotNull();
-        assertThat(jkowalski.getLogin()).isEqualTo(JKOWALSKI);
-        assertThat(jkowalski.getPassword()).isEqualTo(PASSWORD);
-        User user1 = jkowalski.getUser();
-        assertThat(user1).isNotNull();
-        assertThat(user1.getEmail()).isEqualTo(EMAIL);
-        assertThat(user1.getPhoneNumber()).isEqualTo(PHONE_NUMBER);
-        assertThat(user1.getFirstName()).isEqualTo(FIRST_NAME);
-        assertThat(user1.getLastName()).isEqualTo(LAST_NAME);
-        City city1 = user1.getCity();
-        assertThat(city1).isNotNull();
-        assertThat(city1.getCityName()).isEqualTo(CITY_NAME);
-        assertThat(city1.getCountryName()).isEqualTo(COUNTRY_NAME);
+        Account accountResult = accountService.findAccountByLogin(USERNAME);
+        assertThat(accountResult).isNotNull();
+        assertThat(accountResult.getLogin()).isEqualTo(USERNAME);
+        assertThat(accountResult.getPassword()).isEqualTo(PASSWORD);
+        User userResult = accountResult.getUser();
+        assertThat(userResult).isNotNull();
+        assertThat(userResult.getEmail()).isEqualTo(EMAIL);
+        assertThat(userResult.getPhoneNumber()).isEqualTo(PHONE_NUMBER);
+        assertThat(userResult.getFirstName()).isEqualTo(FIRST_NAME);
+        assertThat(userResult.getLastName()).isEqualTo(LAST_NAME);
+        City cityResult = userResult.getCity();
+        assertThat(cityResult).isNotNull();
+        assertThat(cityResult.getCityName()).isEqualTo(CITY_NAME);
+        assertThat(cityResult.getCountryName()).isEqualTo(COUNTRY_NAME);
     }
 
 }

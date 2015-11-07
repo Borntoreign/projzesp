@@ -3,6 +3,7 @@ package pl.lodz.p.carpooling.user.account;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.beans.factory.annotation.Required;
 import pl.lodz.p.carpooling.persistent.PersistentObject;
 import pl.lodz.p.carpooling.user.User;
 
@@ -23,6 +24,15 @@ public class Account extends PersistentObject {
     @OneToOne
     @Cascade(CascadeType.PERSIST)
     private User user;
+
+    public Account() {
+    }
+
+    public Account(String login, String password, String email, String firstName, String lastName) {
+        this.login = login;
+        this.password = password;
+        this.user = new User(firstName,lastName,email);
+    }
 
     public String getLogin() {
         return login;

@@ -3,9 +3,7 @@ package pl.lodz.p.carpooling.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.lodz.p.carpooling.user.account.Account;
 import pl.lodz.p.carpooling.user.account.AccountService;
 
@@ -19,7 +17,7 @@ public class RegisterController {
     private AccountService accountService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity register(Account account) {
+    public ResponseEntity register(@RequestBody Account account) {
         try {
             accountService.register(account);
             return new ResponseEntity<>(HttpStatus.CREATED);
