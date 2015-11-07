@@ -1,0 +1,43 @@
+<section>
+    <div class="modal-header">
+        <a class="glyphicon glyphicon-remove cancel" ng-click="cancel()"></a>
+
+        <h3 class="modal-title">Register</h3>
+    </div>
+    <div class="modal-body">
+        <div ng-class="messageClass" role="alert">{{message}}</div>
+        <section class="register-module">
+            <div class="input-group">
+                <span class="input-group-addon">Login:</span>
+                <input type="text" class="form-control" placeholder="First name"
+                       ng-model="login">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Password:</span>
+                <input type="password" class="form-control" placeholder="Last name"
+                       ng-model="password">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">First name:</span>
+                <input type="text" class="form-control" placeholder="First name"
+                       ng-model="firstName">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Last name:</span>
+                <input type="text" class="form-control" placeholder="Last name"
+                       ng-model="lastName">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon">Email:</span>
+                <input type="text" class="form-control" placeholder="Email" ng-model="email">
+            </div>
+
+        </section>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="register(login,password,email,firstName,lastName)">
+            Register
+        </button>
+    </div>
+</section>

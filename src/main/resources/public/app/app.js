@@ -3,6 +3,7 @@
 (function () {
     angular
         .module('carpooling', [
+            'carpooling.auth',
             'ui.bootstrap',
             'ui.router',
             'ngCookies',

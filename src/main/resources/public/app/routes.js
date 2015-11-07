@@ -13,4 +13,4 @@ angular.module('carpooling').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: '/app/home/home.html'
             });
     }
-])();
+]);
