@@ -1,0 +1,9 @@
+<form class="navbar-form navbar-right" role="form" ng-controller="AuthController">
+    <section ng-if="isNotAuthorize()">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Login" name="username" ng-model="username">
+            <input type="password" class="form-control" placeholder="Password" name="password" ng-model="password">
+        </div>
+        <button type="submit" class="btn btn-warning" ng-click="login(username, password)">Log In</button>
+    </section>
+</form>

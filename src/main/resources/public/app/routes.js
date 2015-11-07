@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('carpooling').config(['$stateProvider', '$urlRouterProvider',
+angular.module('carpooling')
+    .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes

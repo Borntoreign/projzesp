@@ -21,8 +21,8 @@
 
 </head>
 <body ng-app="carpooling">
-<div ng-include="'app/commons/nav.html'"></div>
-<ui-view/>
+<div ng-include="'app/commons/nav.html'" ng-controller="CarpoolingController"></div>
+<ui-view/>l
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
@@ -43,6 +43,8 @@
 <script src="app/app.js"></script>
 <script src="app/routes.js"></script>
 <script src="app/auth/auth.controller.js"></script>
+<script src="app/auth/login.directive.js"></script>
+<script src="app/commons/carpooling.controller.js"></script>
 <!-- endbuild -->
 
 </body>

@@ -13,10 +13,18 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" ng-controller="AuthController">
                 <li><a href="#test1">Test1</a></li>
                 <li><a href="#test2">Test2</a></li>
-                <li ng-controller="AuthController"><button ng-click="open('lg')">Register</button></li>
+                <li>
+                    <login/>
+                </li>
+                <li ng-if="isNotAuthorize()">
+                    <button class="btn btn-warning" ng-click="open('lg')">Register</button>
+                </li>
+                <li ng-if="isAuthorize()">
+                    <button type="button" class="btn btn-warning" ng-click="logout('/')">Log out</button>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
