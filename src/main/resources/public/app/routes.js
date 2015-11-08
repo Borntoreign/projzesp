@@ -9,9 +9,14 @@ angular.module('carpooling')
 
         // Application routes
         $stateProvider
-            .state('home', {
+            .state('start', {
                 url: '/',
-                templateUrl: '/app/home/home.html'
+                templateUrl: '/app/commons/start.html'
+            })
+            .state('home', {
+                url: '/home',
+                templateUrl: '/app/home/home.html',
+                controller: 'HomeController'
             });
     }
 ]);

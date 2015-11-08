@@ -4,6 +4,11 @@ html, body {
     width: 100%;
 }
 
+.navbar {
+    position: relative;
+    margin-bottom: 0 !important;
+}
+
 /* padded section */
 .pad-section {
     padding: 50px 0;

@@ -20,6 +20,7 @@ angular.module('carpooling.auth', []).controller('AuthController', [
                 $http.get('/users/' + username).success(function (user) {
                         $rootScope.user = user;
                         $cookieStore.put('user', user.login);
+                        $location.path('/home');
                     }
                 );
             }).error(function () {
@@ -31,21 +32,21 @@ angular.module('carpooling.auth', []).controller('AuthController', [
             $http({
                 method: 'POST',
                 url: 'logout'
-            }).success(function() {
+            }).success(function () {
                 $cookieStore.remove('user');
                 delete $rootScope.user;
                 $location.path(path);
-            }).error(function(e) {
+            }).error(function (e) {
                 alert(e);
             });
         };
 
-        $scope.isAuthorize = function() {
+        $scope.isAuthorize = function () {
             var result = $rootScope.user !== null && $rootScope.user !== undefined;
             return result;
         };
 
-        $scope.isNotAuthorize = function() {
+        $scope.isNotAuthorize = function () {
             var result = $rootScope.user === null || $rootScope.user === undefined;
             return result;
         };
