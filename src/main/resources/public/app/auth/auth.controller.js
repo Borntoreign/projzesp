@@ -2,7 +2,7 @@ angular.module('carpooling.auth', []).controller('AuthController', [
     '$scope', '$rootScope', '$modal', '$http', '$location', '$cookieStore',
     function ($scope, $rootScope, $modal, $http, $location, $cookieStore) {
 
-        $scope.open = function (size) {
+        $scope.openRegister = function (size) {
             var modalInstance = $modal.open({
                 animation: true,
                 templateUrl: '/app/auth/register.html',
@@ -22,7 +22,7 @@ angular.module('carpooling.auth', []).controller('AuthController', [
                         $cookieStore.put('user', user.login);
                         $location.path('/home');
                     }
-                );
+                )
             }).error(function () {
                 alert("check your login and password");
             });

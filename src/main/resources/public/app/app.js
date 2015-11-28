@@ -4,7 +4,7 @@
     angular
         .module('carpooling', [
             'carpooling.auth',
-            'carpooling.home',
+            'carpooling.transit',
             'ui.bootstrap',
             'ui.router',
             'ngCookies',

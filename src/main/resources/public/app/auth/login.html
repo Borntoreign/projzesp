@@ -1,9 +1,13 @@
 <form class="navbar-form navbar-right" role="form" ng-controller="AuthController">
     <section ng-if="isNotAuthorize()">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Login" name="username" ng-model="username">
-            <input type="password" class="form-control" placeholder="Password" name="password" ng-model="password">
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Username" ng-model="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password">
+            </div>
         </div>
-        <button type="submit" class="btn btn-warning" ng-click="login(username, password)">Log In</button>
+        <a href="#" class="btn btn-primary btn-success" ng-click="login(username, password)"> Log In</a>
     </section>
 </form>

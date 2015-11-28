@@ -9,14 +9,49 @@ angular.module('carpooling')
 
         // Application routes
         $stateProvider
+            .state('layout', {
+                abstract: true,
+                templateUrl: 'app/commons/layout.html'
+            })
+            .state('nav', {
+                abstract: true,
+                parent: 'layout',
+                views: {
+                    header: {
+                        templateUrl: 'app/commons/nav.html'
+                    },
+                    content: {
+                        template: '<ui-view/>'
+                    },
+                    sidebar: {
+                        templateUrl: 'app/commons/sidebar.html'
+                    },
+                    footer: {
+                        templateUrl: 'app/commons/footer.html'
+                    }
+                }
+            })
             .state('start', {
                 url: '/',
+                parent: 'nav',
                 templateUrl: '/app/commons/start.html'
             })
             .state('home', {
                 url: '/home',
+                parent: 'nav',
                 templateUrl: '/app/home/home.html',
                 controller: 'HomeController'
+            })
+            .state('transit',{
+                url: '/transit',
+                parent: 'nav',
+                abstract: true
+            })
+            .state('transit.create', {
+                url: '^/create',
+                parent: 'nav',
+                templateUrl: '/app/transit/transit.create.html',
+                controller: 'TransitController'
             });
     }
 ]);

@@ -45,7 +45,6 @@ public class AccountServiceTest {
         user.setPhoneNumber(PHONE_NUMBER);
         City city = new City();
         city.setCityName(CITY_NAME);
-        city.setCountryName(COUNTRY_NAME);
         user.setCity(city);
         account.setUser(user);
 
@@ -64,7 +63,6 @@ public class AccountServiceTest {
         City cityResult = userResult.getCity();
         assertThat(cityResult).isNotNull();
         assertThat(cityResult.getCityName()).isEqualTo(CITY_NAME);
-        assertThat(cityResult.getCountryName()).isEqualTo(COUNTRY_NAME);
     }
 
 }

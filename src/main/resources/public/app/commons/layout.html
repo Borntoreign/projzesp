@@ -1,0 +1,15 @@
+<div ng-controller="CarpoolingController">
+    <div id="content-wrapper">
+        <div class="page-content">
+            <div ui-view="header"></div>
+            <div class="container">
+                <div class="sidebar" ng-controller="AuthController">
+                    <div ng-if="isAuthorize()" ui-view="sidebar"/>
+                </div>
+                <!-- Main Content -->
+                <div ui-view="content"></div>
+            </div>
+        </div>
+        <div ui-view="footer"></div>
+    </div>
+</div>

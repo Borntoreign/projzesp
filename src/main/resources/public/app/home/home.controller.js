@@ -1,4 +1,4 @@
-angular.module('carpooling.home', []).controller('HomeController', ['$scope', '$rootScope',
+angular.module('carpooling').controller('HomeController', ['$scope', '$rootScope',
     function ($scope, $rootScope) {
 
     }]);

@@ -1,43 +1,62 @@
 <section>
     <div class="modal-header">
-        <a class="glyphicon glyphicon-remove cancel" ng-click="cancel()"></a>
+        <a class="glyphicon glyphicon-remove pull-right btn-cancel" ng-click="cancel()"></a>
 
         <h3 class="modal-title">Register</h3>
     </div>
     <div class="modal-body">
         <div ng-class="messageClass" role="alert">{{message}}</div>
-        <section class="register-module">
-            <div class="input-group">
-                <span class="input-group-addon">Login:</span>
-                <input type="text" class="form-control" placeholder="Login"
-                       ng-model="login">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Password:</span>
-                <input type="password" class="form-control" placeholder="Password"
-                       ng-model="password">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">First name:</span>
-                <input type="text" class="form-control" placeholder="First name"
-                       ng-model="firstName">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Last name:</span>
-                <input type="text" class="form-control" placeholder="Last name"
-                       ng-model="lastName">
-            </div>
+        <form class="form-horizontal">
+            <fieldset>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="username">Username</label>
+                    <div class="col-md-6">
+                        <input id="username" ng-model="login" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
 
-            <div class="input-group">
-                <span class="input-group-addon">Email:</span>
-                <input type="text" class="form-control" placeholder="Email" ng-model="email">
-            </div>
+                    </div>
+                </div>
 
-        </section>
+                <!-- Password input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="password">Password</label>
+                    <div class="col-md-6">
+                        <input id="password" ng-model="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
+                        <span class="help-block">Your password must contains 1 number</span>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="firstName">First Name</label>
+                    <div class="col-md-6">
+                        <input id="firstName" ng-model="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="lastName">Last Name</label>
+                    <div class="col-md-6">
+                        <input id="lastName" ng-model="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="email">Email</label>
+                    <div class="col-md-6">
+                        <input id="email" ng-model="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-warning" ng-click="register(login,password,email,firstName,lastName)">
-            Register
-        </button>
+        <a href="#" class="btn btn-block btn-success" ng-click="register(login,password,email,firstName,lastName)">Register</a>
     </div>
 </section>

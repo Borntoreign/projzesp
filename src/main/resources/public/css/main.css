@@ -4,6 +4,11 @@ html, body {
     width: 100%;
 }
 
+.container {
+    width: 100%;
+    padding: 0 !important;
+}
+
 .navbar {
     position: relative;
     margin-bottom: 0 !important;
@@ -83,5 +88,22 @@ footer .glyphicon:hover {
     color: #309F8B;
 }
 
+.form-horizontal {
+    margin: 1em;
+}
 
+.help-block {
+    font-size: 12px;
+    font-style: italic;
+}
 
+.btn-cancel {
+    text-decoration: none;
+    color: #5cb85c;
+}
+
+.btn-cancel:hover {
+    text-decoration: none;
+    color: #449d44;
+    cursor: pointer;
+}
