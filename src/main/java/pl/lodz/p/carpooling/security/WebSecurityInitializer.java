@@ -29,6 +29,8 @@ public class WebSecurityInitializer extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .formLogin()
+                .failureHandler(new FailureAuthenticationHandler())
+                .successHandler(new SuccessAuthenticationHandler())
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and()

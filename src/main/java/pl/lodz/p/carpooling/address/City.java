@@ -1,17 +1,32 @@
 package pl.lodz.p.carpooling.address;
 
-import pl.lodz.p.carpooling.persistent.PersistentObject;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by Mateusz Surmanski on 01.11.15.
  */
 @Entity
-public class City extends PersistentObject {
+public class City {
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private long id;
 
     private String cityName;
-    private String countryName;
+
+    public City() {
+    }
+
+    public City(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public long getId() {
+        return id;
+    }
 
     public String getCityName() {
         return cityName;
@@ -19,13 +34,5 @@ public class City extends PersistentObject {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
     }
 }

@@ -1,20 +1,21 @@
 package pl.lodz.p.carpooling.user.account;
 
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.factory.annotation.Required;
-import pl.lodz.p.carpooling.persistent.PersistentObject;
 import pl.lodz.p.carpooling.user.User;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
 
 /**
  * Created by Mateusz Surmanski on 01.11.15.
  */
 @Entity
-public class Account extends PersistentObject {
+public class Account {
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private long id;
 
     private String login;
 
@@ -31,7 +32,11 @@ public class Account extends PersistentObject {
     public Account(String login, String password, String email, String firstName, String lastName) {
         this.login = login;
         this.password = password;
-        this.user = new User(firstName,lastName,email);
+        this.user = new User(firstName, lastName, email);
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getLogin() {

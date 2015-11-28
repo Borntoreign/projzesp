@@ -1,0 +1,35 @@
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Create new transit</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="startCity">Start City</label>
+            <div class="col-md-5">
+                <input id="startCity" ng-model="transit.startCity" name="startCity" type="text" placeholder="Start City" class="form-control input-md" required="">
+                <span class="help-block">Search place, where you will start your trip</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="endCity">End City</label>
+            <div class="col-md-5">
+                <input id="endCity" name="endCity" ng-model="transit.endCity" type="text" placeholder="End City" class="form-control input-md" required="">
+                <span class="help-block">Search place, where you will end your trip</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="date">Date</label>
+            <div class="col-md-5">
+                <input id="date" ng-model="transit.date" name="date" type="text" placeholder="Date" class="form-control input-md" required="">
+                <span class="help-block">Start date of trip (format: dd-MM-yyyy HH:mm, eg. 11-02-2015 12:10)</span>
+            </div>
+        </div>
+        <a href="#" ng-click="createTransit(transit)" class="btn btn-lg btn-success pull-right">Submit</a>
+    </fieldset>
+</form>

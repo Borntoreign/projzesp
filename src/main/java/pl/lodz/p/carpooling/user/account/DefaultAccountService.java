@@ -3,6 +3,8 @@ package pl.lodz.p.carpooling.user.account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.login.AccountNotFoundException;
+
 /**
  * Created by Mateusz Surmanski on 01.11.15.
  */
@@ -20,6 +22,7 @@ public class DefaultAccountService implements AccountService {
     @Override
     public void register(String login, String password, String email, String firstName, String lastName) {
         Account account = new Account(login,password,email,firstName,lastName);
+        register(account);
     }
 
     @Override

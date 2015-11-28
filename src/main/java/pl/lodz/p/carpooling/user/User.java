@@ -4,16 +4,18 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Email;
 import pl.lodz.p.carpooling.address.City;
-import pl.lodz.p.carpooling.persistent.PersistentObject;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by Mateusz Surmanski on 01.11.15.
  */
 @Entity
-public class User extends PersistentObject {
+public class User {
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private long id;
 
     private String firstName;
     private String lastName;
@@ -31,6 +33,10 @@ public class User extends PersistentObject {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getFirstName() {
