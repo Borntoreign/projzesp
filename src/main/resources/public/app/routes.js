@@ -58,6 +58,12 @@ angular.module('carpooling')
                 parent: 'nav',
                 templateUrl: '/app/transit/transit.my.html',
                 controller: 'TransitController'
+            })
+            .state('transit.details', {
+                url: '/transit/{id}',
+                parent: 'nav',
+                templateUrl: '/app/transit/transit.details.html',
+                controller: 'TransitController'
             });
     }
 ]);

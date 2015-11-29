@@ -11,4 +11,9 @@ interface TransitService {
     Transit create(String username, String startDate, String startCity, String endCity);
 
     List<Transit> getTransitsByUsername(String username);
+
+    Transit getTransit(Long id);
+
+
+    void deleteTransit(Long id);
 }

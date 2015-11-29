@@ -19,7 +19,7 @@ public class TransitController {
     @Autowired
     private TransitService transitService;
 
-    @RequestMapping(value = "/transit", method = RequestMethod.POST)
+    @RequestMapping(value = "transit", method = RequestMethod.POST)
     public ResponseEntity createTransit(@RequestBody Map<String, String> requestMap) {
         try {
             Transit createdTransit = transitService.create(requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"));
@@ -29,12 +29,32 @@ public class TransitController {
         }
     }
 
-    @RequestMapping(value = "transit/{user}", method = RequestMethod.GET)
+    @RequestMapping(value = "transit/my/{user}", method = RequestMethod.GET)
     public ResponseEntity getMyTransit(@PathVariable String user) {
         try {
             List<Transit> transits = transitService.getTransitsByUsername(user);
             return ResponseEntity.ok(transits);
-        }catch(Exception e) {
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @RequestMapping(value = "transit/{id}", method = RequestMethod.GET)
+    public ResponseEntity getTransit(@PathVariable Long id) {
+        try {
+            Transit transit = transitService.getTransit(id);
+            return ResponseEntity.ok(transit);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @RequestMapping(value = "transit/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity deleteTransit(@PathVariable Long id) {
+        try {
+            transitService.deleteTransit(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }

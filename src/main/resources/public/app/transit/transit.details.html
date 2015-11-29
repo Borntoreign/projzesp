@@ -1,0 +1,54 @@
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Transit</legend>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="startCity">Start City</label>
+            <div class="col-md-5">
+                <div id="startCity" name="startCity">{{currentTransit.route.startCity.cityName}}</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="endCity">End City</label>
+            <div class="col-md-5">
+                <div id="endCity" name="endCity">{{currentTransit.route.endCity.cityName}}</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="startDate">Date</label>
+            <div class="col-md-5">
+                <div id="startDate" name="startDate">{{currentTransit.startDate}}</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="driver">Driver</label>
+            <div class="col-md-5">
+                <div id="driver" name="driver">{{currentTransit.driver.firstName}} {{currentTransit.driver.lastName}}</div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-if="currentTransit.passengers.length > 0">
+            <label class="col-md-4 control-label" for="passengers">Passengers</label>
+            <div class="col-md-5">
+                <div id="passengers" name="passengers" ng-repeat="passenger in currentTransit.passengers">
+                    <div>{{passenger.firstName}} {{passenger.lastName}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-if="currentTransit.passengers.length === 0">
+            <label class="col-md-4 control-label" for="passengers">Passengers</label>
+            <div class="col-md-5">
+                <div id="no-passengers" name="passengers">
+                    No passengers to display
+                </div>
+            </div>
+        </div>
+        <a href="#" ng-click="deleteTransit(currentTransit)" class="btn btn-lg btn-success pull-right">Delete</a>
+    </fieldset>
+</form>

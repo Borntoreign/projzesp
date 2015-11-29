@@ -58,4 +58,14 @@ public class DefaultTransitService implements TransitService {
         List<Transit> transits = Lists.reverse(transitsByDriver.stream().sorted(new TransitDateComparator()).collect(Collectors.toList()));
         return transits;
     }
+
+    @Override
+    public Transit getTransit(Long id) {
+        return transitRepository.findOne(id);
+    }
+
+    @Override
+    public void deleteTransit(Long id) {
+        transitRepository.delete(id);
+    }
 }
