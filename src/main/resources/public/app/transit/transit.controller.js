@@ -1,5 +1,5 @@
-angular.module('carpooling.transit', []).controller('TransitController', ['$scope', '$rootScope', '$http', '$location',
-    function ($scope, $rootScope, $http, $location) {
+angular.module('carpooling.transit', []).controller('TransitController', ['$scope', '$rootScope', '$http', '$state',
+    function ($scope, $rootScope, $http, $state) {
         $scope.createTransit = function (transit) {
             $http.post('/transit', {
                 'startCity': transit.startCity,
@@ -7,7 +7,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'driver': $rootScope.user.login,
                 'startDate': transit.date
             }).success(function () {
-                $location.path('/transit/my');
+                $state.go('transit.my');
                 console.log('dodano');
             }).error(function (data) {
                 console.error('nie dodano');
@@ -39,7 +39,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         $scope.deleteTransit = function (transit) {
             $http.delete('/transit/' + transit.id).success(function () {
                 console.log('Transit is deleted');
-                $location.path('/transit/my');
+                $state.go('transit.my');
             }).error(function (error) {
                 console.error('deleteTransit error');
             })
