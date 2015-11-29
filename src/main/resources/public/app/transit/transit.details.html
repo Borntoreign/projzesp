@@ -49,6 +49,11 @@
                 </div>
             </div>
         </div>
-        <a href="#" ng-click="deleteTransit(currentTransit)" class="btn btn-lg btn-success pull-right">Delete</a>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="deleteButton"></label>
+            <div class="col-md-4">
+                <button id="deleteButton" ng-click="deleteTransit(currentTransit)" name="deleteButton" class="btn btn-success">Delete</button>
+            </div>
+        </div>
     </fieldset>
 </form>

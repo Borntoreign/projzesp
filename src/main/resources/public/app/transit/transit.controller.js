@@ -7,6 +7,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'driver': $rootScope.user.login,
                 'startDate': transit.date
             }).success(function () {
+                $location.path('/transit/my');
                 console.log('dodano');
             }).error(function (data) {
                 console.error('nie dodano');

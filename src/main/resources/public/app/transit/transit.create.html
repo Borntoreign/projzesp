@@ -30,6 +30,12 @@
                 <span class="help-block">Start date of trip (format: dd-MM-yyyy HH:mm, eg. 11-02-2015 12:10)</span>
             </div>
         </div>
-        <a href="#" ng-click="createTransit(transit)" class="btn btn-lg btn-success pull-right">Submit</a>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="createButton"></label>
+            <div class="col-md-4">
+                <button id="createButton" ng-click="createTransit(transit)"  name="createButton" class="btn btn-success">Create</button>
+            </div>
+        </div>
     </fieldset>
 </form>
