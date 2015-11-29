@@ -1,0 +1,13 @@
+.sidebar {
+    width: 20%;
+    float: left;
+}
+
+.content {
+    float: left;
+    width: 80%;
+}
+
+.start-content {
+    width: 100%;
+}

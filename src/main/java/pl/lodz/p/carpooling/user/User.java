@@ -11,6 +11,7 @@ import javax.persistence.*;
  * Created by Mateusz Surmanski on 01.11.15.
  */
 @Entity
+@Table(name="USERS")
 public class User {
 
     @GeneratedValue(strategy = GenerationType.AUTO)

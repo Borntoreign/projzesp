@@ -4,8 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lodz.p.carpooling.CarpoolingApplication;
 import pl.lodz.p.carpooling.address.City;
 import pl.lodz.p.carpooling.security.WebSecurityInitializer;
@@ -16,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by Mateusz Surmanski on 01.11.15.
  */
+@Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {CarpoolingApplication.class, WebSecurityInitializer.class})
 @WebAppConfiguration
@@ -27,12 +30,12 @@ public class AccountServiceTest {
     public static final String FIRST_NAME = "Jan";
     public static final String LAST_NAME = "Kowalski";
     public static final String CITY_NAME = "Lodz";
-    public static final String COUNTRY_NAME = "Poland";
     public static final String PHONE_NUMBER = "555-555-555";
 
     @Autowired
     private AccountService accountService;
 
+    @Rollback
     @Test
     public void shouldRegisterToDatabaseAndGetItBack() throws Exception {
         Account account = new Account();

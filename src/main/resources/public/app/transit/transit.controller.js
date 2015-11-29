@@ -7,9 +7,28 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'driver': $rootScope.user.login,
                 'startDate': transit.date
             }).success(function () {
-                alert('dodano');
+                logger.info('dodano');
             }).error(function (data) {
-                alert(data);
+                logger.error('nie dodano');
             });
+        };
+
+        $scope.getMyTransit = function() {
+            $http({
+                method:'GET',
+                url:'/transit/'+$rootScope.user.login
+            }).success(function (response) {
+                $scope.myTransits = response;
+            }).error(function(error) {
+                logger.error('getMyTransit error');
+            });
+        };
+
+        $scope.getRole = function(transit) {
+            if(transit.driver.id === $rootScope.user.user.id) {
+                return "Driver";
+            } else {
+                return "Passenger";
+            }
         }
     }]);

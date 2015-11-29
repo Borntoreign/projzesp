@@ -7,7 +7,7 @@
                     <div ng-if="isAuthorize()" ui-view="sidebar"/>
                 </div>
                 <!-- Main Content -->
-                <div ui-view="content"></div>
+                <div ng-class="getContentClass()" ui-view="content"></div>
             </div>
         </div>
         <div ui-view="footer"></div>

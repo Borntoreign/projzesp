@@ -55,9 +55,11 @@ public class Transit {
         this.route = route;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public String getStartDate() {
+        return startDate.toString("dd MMM yyyy HH:mm");
     }
+
+    public LocalDateTime getStartDateObject(){return startDate;}
 
     public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;

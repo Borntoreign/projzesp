@@ -6,16 +6,11 @@ package pl.lodz.p.carpooling.transit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import pl.lodz.p.carpooling.transit.route.Route;
-import pl.lodz.p.carpooling.user.User;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -30,6 +25,16 @@ public class TransitController {
             Transit createdTransit = transitService.create(requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"));
             return ResponseEntity.created(new URI("/transit/" + createdTransit.getId())).build();
         } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @RequestMapping(value = "transit/{user}", method = RequestMethod.GET)
+    public ResponseEntity getMyTransit(@PathVariable String user) {
+        try {
+            List<Transit> transits = transitService.getTransitsByUsername(user);
+            return ResponseEntity.ok(transits);
+        }catch(Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }

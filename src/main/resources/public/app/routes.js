@@ -48,9 +48,15 @@ angular.module('carpooling')
                 abstract: true
             })
             .state('transit.create', {
-                url: '^/create',
+                url: '/transit/create',
                 parent: 'nav',
                 templateUrl: '/app/transit/transit.create.html',
+                controller: 'TransitController'
+            })
+            .state('transit.my', {
+                url: '/transit/my',
+                parent: 'nav',
+                templateUrl: '/app/transit/transit.my.html',
                 controller: 'TransitController'
             });
     }

@@ -1,5 +1,6 @@
 package pl.lodz.p.carpooling.transit;
 
+import com.google.common.collect.Lists;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,11 @@ import pl.lodz.p.carpooling.transit.route.Route;
 import pl.lodz.p.carpooling.user.User;
 import pl.lodz.p.carpooling.user.UserService;
 
-import javax.security.auth.login.AccountNotFoundException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * Created by Mateusz Surmanski on 08.11.15.
@@ -19,11 +22,15 @@ import java.util.Random;
 @Service
 public class DefaultTransitService implements TransitService {
 
-    @Autowired
     private TransitRepository transitRepository;
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public DefaultTransitService(TransitRepository transitRepository, UserService userService) {
+        this.transitRepository = transitRepository;
+        this.userService = userService;
+    }
 
     @Override
     public Transit create(Transit transit) {
@@ -39,5 +46,16 @@ public class DefaultTransitService implements TransitService {
         Transit transit = new Transit(route, date, driver);
         transitRepository.save(transit);
         return transit;
+    }
+
+    //TODO finish it!
+    @Override
+    public List<Transit> getTransitsByUsername(String username) {
+        User user = userService.findUserByUsername(username);
+        List<Transit> transitsByDriver = transitRepository.findTransitsByDriver(user);
+        // List<Transit> transitsByPassenger = transitRepository.findTransitByPassenger(user);
+        // transitsByDriver.addAll(transitsByPassenger);
+        List<Transit> transits = Lists.reverse(transitsByDriver.stream().sorted(new TransitDateComparator()).collect(Collectors.toList()));
+        return transits;
     }
 }

@@ -11,4 +11,12 @@ angular.module('carpooling').controller('CarpoolingController', [
         }
 
         initUser();
+
+        $scope.getContentClass = function() {
+            if($rootScope.user !== null && $rootScope.user !== undefined) {
+                return "content";
+            } else {
+                return "start-content";
+            }
+        }
     }]);
