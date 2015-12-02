@@ -25,15 +25,12 @@ public class Route {
     @Cascade(CascadeType.PERSIST)
     private City endCity;
 
-    private BigDecimal distance;
-
     public Route() {
     }
 
-    public Route(City startCity, City endCity, BigDecimal distance) {
+    public Route(City startCity, City endCity) {
         this.startCity = startCity;
         this.endCity = endCity;
-        this.distance = distance;
     }
 
     public long getId() {
@@ -56,11 +53,4 @@ public class Route {
         this.endCity = endCity;
     }
 
-    public BigDecimal getDistance() {
-        return distance;
-    }
-
-    public void setDistance(BigDecimal distance) {
-        this.distance = distance;
-    }
 }

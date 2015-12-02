@@ -5,6 +5,7 @@
         .module('carpooling', [
             'carpooling.auth',
             'carpooling.transit',
+            'carpooling.search',
             'ui.bootstrap',
             'ui.router',
             'ngCookies',

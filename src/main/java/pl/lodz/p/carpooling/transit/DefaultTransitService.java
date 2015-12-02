@@ -4,16 +4,16 @@ import com.google.common.collect.Lists;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Service;
 import pl.lodz.p.carpooling.address.City;
+import pl.lodz.p.carpooling.address.CityService;
 import pl.lodz.p.carpooling.transit.route.Route;
+import pl.lodz.p.carpooling.transit.route.RouteService;
 import pl.lodz.p.carpooling.user.User;
 import pl.lodz.p.carpooling.user.UserService;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -26,10 +26,16 @@ public class DefaultTransitService implements TransitService {
 
     private UserService userService;
 
+    private RouteService routeService;
+
+    private CityService cityService;
+
     @Autowired
-    public DefaultTransitService(TransitRepository transitRepository, UserService userService) {
+    public DefaultTransitService(TransitRepository transitRepository, UserService userService, RouteService routeService, CityService cityService) {
         this.transitRepository = transitRepository;
         this.userService = userService;
+        this.routeService = routeService;
+        this.cityService = cityService;
     }
 
     @Override
@@ -38,14 +44,28 @@ public class DefaultTransitService implements TransitService {
     }
 
     @Override
-    public Transit create(String username, String startDate, String startCity, String endCity) {
-        Route route = new Route(new City(startCity), new City(endCity), new BigDecimal(new Random().nextDouble()));
+    public Transit create(String username, String startDate, String startCityName, String endCityName) {
+        Route route = getRoute(startCityName, endCityName);
         User driver = userService.findUserByUsername(username);
         String pattern = "dd-MM-yyyy HH:mm";
         LocalDateTime date = LocalDateTime.parse(startDate, DateTimeFormat.forPattern(pattern));
         Transit transit = new Transit(route, date, driver);
         transitRepository.save(transit);
         return transit;
+    }
+
+    private Route getRoute(String startCityName, String endCityName) {
+        City city = cityService.getCity(startCityName);
+        City startCity = city == null? new City(startCityName) : city;
+        city = cityService.getCity(endCityName);
+        City endCity = city == null? new City(endCityName) : city;
+        Route route = null;
+        try {
+            route = routeService.getRoute(startCity, endCity);
+        }catch(InvalidDataAccessApiUsageException e) {
+            route = new Route(startCity,endCity);
+        }
+        return route;
     }
 
     //TODO finish it!
@@ -68,4 +88,18 @@ public class DefaultTransitService implements TransitService {
     public void deleteTransit(Long id) {
         transitRepository.delete(id);
     }
+
+    @Override
+    public List<Transit> getTransits(City startCity, City endCity, LocalDateTime startDate) {
+        Route route = routeService.getRoute(startCity, endCity);
+        return transitRepository.findTransitsByRouteAndStartDate(route,startDate);
+    }
+
+    @Override
+    public List<Transit> getTransits(City startCity, City endCity) {
+        Route route = routeService.getRoute(startCity, endCity);
+        return transitRepository.findTransitsByRoute(route);
+    }
+
+
 }

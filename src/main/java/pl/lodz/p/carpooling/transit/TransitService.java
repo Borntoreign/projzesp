@@ -1,13 +1,19 @@
 package pl.lodz.p.carpooling.transit;
 
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
+import pl.lodz.p.carpooling.address.City;
+
 import javax.security.auth.login.AccountNotFoundException;
 import java.util.List;
 
 /**
  * Created by Mateusz Surmanski on 08.11.15.
  */
-interface TransitService {
+public interface TransitService {
     Transit create(Transit transit);
+
     Transit create(String username, String startDate, String startCity, String endCity);
 
     List<Transit> getTransitsByUsername(String username);
@@ -16,4 +22,8 @@ interface TransitService {
 
 
     void deleteTransit(Long id);
+
+    List<Transit> getTransits(City startCity, City endCity, LocalDateTime startDate);
+
+    List<Transit> getTransits(City startCity, City endCity);
 }

@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="transit in myTransits" ui-sref="transit.details" ng-click="getTransitDetails(transit)">
+        <tr ng-repeat="transit in transits" ui-sref="transit.details({id:transit.id})">
             <td class="text-center">{{$index+1}}</td>
             <td class="text-center">{{transit.startDate}}</td>
             <td class="text-center">{{transit.route.startCity.cityName}}</td>

@@ -33,7 +33,7 @@ public class AccountServiceTest {
     public static final String PHONE_NUMBER = "555-555-555";
 
     @Autowired
-    private AccountService accountService;
+    private DefaultAccountService accountService;
 
     @Rollback
     @Test

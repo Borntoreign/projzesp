@@ -1,0 +1,52 @@
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Search</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="startCity">Start City</label>
+            <div class="col-md-5">
+                <input id="startCity" ng-model="searchObject.startCity" name="startCity" type="text" placeholder="Start City" class="form-control input-md" required="">
+                <span class="help-block">Put place, where you will start your trip</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="endCity">End City</label>
+            <div class="col-md-5">
+                <input id="endCity" ng-model="searchObject.endCity" name="endCity" type="text" placeholder="End City" class="form-control input-md" required="">
+                <span class="help-block">Put place, where you will end your trip</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="date">Date</label>
+            <div class="col-md-5">
+                <input disabled id="date" name="date" ng-model="searchObject.date" type="text" placeholder="Date" class="form-control input-md">
+                <span class="help-block">Put date of your trip (format: dd-MM-yyyy, eg. 12-10-2015)</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="time">Time</label>
+            <div class="col-md-5">
+                <input disabled id="time" name="time" ng-model="searchObject.time" type="text" placeholder="Time" class="form-control input-md">
+                <span class="help-block">Put time of your trip (format HH:mm, eg. 12:10)</span>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="searchButton"></label>
+            <div class="col-md-4">
+                <button id="searchButton" ng-click="search(searchObject)" name="searchButton" class="btn btn-success">Search</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>

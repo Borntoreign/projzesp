@@ -14,10 +14,11 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             });
         };
 
-        $scope.getTransitDetails = function (transit) {
+        $scope.getTransitDetails = function () {
+            var id = $state.params.id;
             $http({
                 method: 'GET',
-                url: '/transit/' + transit.id
+                url: '/transit/' + id
             }).success(function (response) {
                 $rootScope.currentTransit = response;
             }).error(function (error) {
@@ -30,7 +31,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 method: 'GET',
                 url: '/transit/my/' + $rootScope.user.login
             }).success(function (response) {
-                $scope.myTransits = response;
+                $scope.transits = response;
             }).error(function (error) {
                 console.error('getMyTransit error');
             });
