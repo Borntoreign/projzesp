@@ -14,8 +14,9 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
             <ul class="nav navbar-nav navbar-right" ng-controller="AuthController">
-                <li><a href="#test1">Test1</a></li>
-                <li><a href="#test2">Test2</a></li>
+                <li ng-if="isAuthorize()">
+                    <a href="#/settings">Settings</a>
+                </li>
                 <li>
                     <login/>
                 </li>

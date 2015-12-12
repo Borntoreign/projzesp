@@ -1,0 +1,40 @@
+<form class="form-horizontal">
+    <fieldset>
+        <legend>Edit email address</legend>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Current email address</label>
+            <div class="col-md-5">
+                <div id="email" name="email" class="form-control-static">{{$root.user.user.email}}</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label required-field" for="newEmail">New email address</label>
+            <div class="col-md-5">
+                <input id="newEmail" name="newEmail" ng-model="profile.newEmail" type="text" placeholder="New email address" class="form-control input-md" required="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label required-field" for="confirmNewEmail">Confirm email address</label>
+            <div class="col-md-5">
+                <input id="confirmNewEmail" name="confirmNewEmail" ng-model="profile.confirmNewEmail" type="text" placeholder="Confirm email address" class="form-control input-md" required="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label required-field" for="currentPassword">Current password</label>
+            <div class="col-md-5">
+                <input id="currentPassword" name="currentPassword" ng-model="profile.currentPassword" type="text" placeholder="Current password" class="form-control input-md" required="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="saveButton"></label>
+            <div class="col-md-4">
+                <button id="saveButton" ng-click="saveEmail(profile)" name="saveButton" class="btn btn-success">Save new mail</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

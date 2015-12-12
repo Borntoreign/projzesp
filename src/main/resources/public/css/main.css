@@ -107,3 +107,8 @@ footer .glyphicon:hover {
     color: #449d44;
     cursor: pointer;
 }
+
+.required-field:after {
+    content: "*";
+    color: red;
+}

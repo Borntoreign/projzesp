@@ -82,5 +82,41 @@ angular.module('carpooling')
                     templateUrl: '/app/search/search.results.html',
                     controller: 'SearchController'
                 })
+                .state('settingslayout', {
+                    abstract: true,
+                    parent: 'layout',
+                    views: {
+                        header: {
+                            templateUrl: 'app/commons/nav.html'
+                        },
+                        content: {
+                            template: '<ui-view/>'
+                        },
+                        sidebar: {
+                            templateUrl: 'app/settings/sidebar.html'
+                        },
+                        footer: {
+                            templateUrl: 'app/commons/footer.html'
+                        }
+                    }
+                })
+                .state('settings', {
+                    url: '/settings',
+                    parent: 'settingslayout',
+                    templateUrl: '/app/settings/edit.profile.html',
+                    controller: 'SettingsController'
+                })
+                .state('settings.profile', {
+                    url: '/settings/profile',
+                    parent: 'settingslayout',
+                    templateUrl: '/app/settings/edit.profile.html',
+                    controller: 'SettingsController'
+                })
+                .state('settings.email', {
+                    url: '/settings/email',
+                    parent: 'settingslayout',
+                    templateUrl: '/app/settings/edit.email.html',
+                    controller: 'SettingsController'
+                })
         }
     ]);
