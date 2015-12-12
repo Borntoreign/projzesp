@@ -12,33 +12,36 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
  */
 @Configuration
 @EnableWebMvcSecurity
-public class WebSecurityInitializer extends WebSecurityConfigurerAdapter {
+public class WebSecurityInitializer extends WebSecurityConfigurerAdapter
+{
 
-    @Autowired
-    private DefaultUserDetailsService userDetailsService;
+	@Autowired
+	private DefaultUserDetailsService userDetailsService;
 
-    @Autowired
-    public void configAuthBuilder(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
+	@Autowired
+	public void configAuthBuilder(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService);
+	}
 
-    }
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+				.csrf()
+				.disable()
+				.formLogin()
+				.failureHandler(new FailureAuthenticationHandler())
+				.successHandler(new SuccessAuthenticationHandler())
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.and()
+				.logout()
+				.and()
+				.authorizeRequests()
+				.antMatchers("*//**//**//**//**//**//**//**//**")
+				.permitAll();
 
-
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf()
-                .disable()
-                .formLogin()
-                .failureHandler(new FailureAuthenticationHandler())
-                .successHandler(new SuccessAuthenticationHandler())
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .and()
-                .logout()
-                .and()
-                .authorizeRequests()
-                .antMatchers("*//**//**//**//**//**//**//**//**")
-                .permitAll();
-
-    }
+		http
+				.headers()
+				.frameOptions()
+				.disable();
+	}
 }
