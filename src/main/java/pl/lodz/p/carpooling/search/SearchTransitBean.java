@@ -1,8 +1,6 @@
 package pl.lodz.p.carpooling.search;
 
-import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 import pl.lodz.p.carpooling.address.City;
 
 /**
@@ -13,10 +11,13 @@ public class SearchTransitBean {
     private City endCity;
     private LocalDateTime date;
 
+	private static final String HYPHEN = "-";
+	private static final String COLON = ":";
+
     public SearchTransitBean(City startCity, City endCity, String date, String time) {
         if(date != null) {
-            String[] dateSplit = date.split("-");
-            String[] timeSplit = time.split(":");
+            String[] dateSplit = date.split(HYPHEN);
+            String[] timeSplit = time.split(COLON);
             Integer year = Integer.valueOf(dateSplit[2]);
             Integer monthOfYear = Integer.valueOf(dateSplit[1]);
             Integer dayOfMonth = Integer.valueOf(dateSplit[0]);
