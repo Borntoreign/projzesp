@@ -12,6 +12,7 @@
             'ngCookies',
             'uiGmapgoogle-maps',
             'ngAnimate',
-            'ui.bootstrap.datetimepicker'
+            'ui.bootstrap.datetimepicker',
+            'ui.validate',
         ]);
 }());

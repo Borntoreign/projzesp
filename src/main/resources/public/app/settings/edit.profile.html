@@ -1,18 +1,20 @@
-<form class="form-horizontal">
+<form class="form-horizontal" name="editprofile" role="form">
     <fieldset>
         <legend>Edit profile</legend>
+        <div ng-hide="!alertMessage" ng-class="alertMessageClass" role="alert">{{alertMessage}}</div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="phoneNumber">Phone Number</label>
             <div class="col-md-5">
-                <input id="phoneNumber" name="phoneNumber" ng-model="profile.newPhoneNumber" type="text" placeholder="{{$root.user.user.phoneNumber}}" class="form-control input-md" />
+                <input id="phoneNumber" name="phoneNumber" ng-minlength="9" ng-maxlength="12" ng-model="profile.newPhoneNumber" type="text" placeholder="{{$root.user.user.phoneNumber}}" class="form-control input-md" />
+                <span class="text-danger" ng-show="editprofile.phoneNumber.$invalid">You must enter valid phone number.</span>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="saveButton"></label>
             <div class="col-md-4">
-                <button id="saveButton" ng-click="saveUser(profile)" name="saveButton" class="btn btn-success">Save changes</button>
+                <button ng-disabled="editprofile.$invalid" id="saveButton" ng-click="updateUser(profile.newPhoneNumber)" name="saveButton" class="btn btn-success">Save changes</button>
             </div>
         </div>
     </fieldset>
