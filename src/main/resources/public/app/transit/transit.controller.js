@@ -52,6 +52,17 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             } else {
                 return "Passenger";
             }
-        }
+        };
+        
+        $scope.reserveTransit = function (transit) {
+            $http.post('/reservation', {
+                'transitId': transit.id,
+                'username': $rootScope.user.login
+            }).success(function () {
+                console.log('utworzono rezerwacje');
+            }).error(function (data) {
+                console.error('nie utworzono rezerwacji');
+            });
+        }        
 
     }]);
