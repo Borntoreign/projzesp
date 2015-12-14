@@ -9,5 +9,5 @@ import pl.lodz.p.carpooling.transit.route.Route;
  */
 @Repository
 interface CityRepository extends JpaRepository<City, Long> {
-    City findCityByCityName(String cityName);
+    City findCityByCityNameIgnoreCase(String cityName);
 }

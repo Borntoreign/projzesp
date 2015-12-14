@@ -14,6 +14,6 @@ public class DefaultCityService implements CityService {
 
     @Override
     public City getCity(String cityName) {
-        return cityRepository.findCityByCityName(cityName);
+        return cityRepository.findCityByCityNameIgnoreCase(cityName);
     }
 }
