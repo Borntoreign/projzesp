@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Entity
 public class Route {
 
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private long id;
 
