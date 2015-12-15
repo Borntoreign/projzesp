@@ -11,20 +11,20 @@ public class SearchTransitBean {
     private City endCity;
     private LocalDateTime date;
 
-	private static final String HYPHEN = "-";
-	private static final String COLON = ":";
+    private static final String HYPHEN = "-";
+    private static final String COLON = ":";
 
     public SearchTransitBean(City startCity, City endCity, String date, String time) {
-        if(date != null) {
-            String[] dateSplit = date.split(HYPHEN);
-            String[] timeSplit = time.split(COLON);
-            Integer year = Integer.valueOf(dateSplit[2]);
-            Integer monthOfYear = Integer.valueOf(dateSplit[1]);
-            Integer dayOfMonth = Integer.valueOf(dateSplit[0]);
-            Integer hourOfDay = Integer.valueOf(timeSplit[0]);
-            Integer minuteOfHour = Integer.valueOf(timeSplit[1]);
-            this.date = new LocalDateTime(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour);
-        }
+        String[] dateSplit = date.split(HYPHEN);
+        String[] timeSplit = time.split(COLON);
+        Integer year = Integer.valueOf(dateSplit[2]);
+        Integer monthOfYear = Integer.valueOf(dateSplit[1]);
+        Integer dayOfMonth = Integer.valueOf(dateSplit[0]);
+        Integer hourOfDay = Integer.valueOf(timeSplit[0]);
+        Integer minuteOfHour = Integer.valueOf(timeSplit[1]);
+        this.date = new LocalDateTime(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour);
+        this.startCity = startCity;
+        this.endCity = endCity;
     }
 
     public SearchTransitBean(City startCity, City endCity) {

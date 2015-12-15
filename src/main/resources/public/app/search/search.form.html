@@ -24,18 +24,18 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Date</label>
+            <label class="col-md-4 control-label" for="date">Start Date <small>(Optional)</small></label>
             <div class="col-md-5">
-                <input disabled id="date" name="date" ng-model="searchObject.date" type="text" placeholder="Date" class="form-control input-md">
+                <input id="date" name="date" ng-model="searchObject.date" type="text" placeholder="Date" class="form-control input-md">
                 <span class="help-block">Put date of your trip (format: dd-MM-yyyy, eg. 12-10-2015)</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="time">Time</label>
+            <label class="col-md-4 control-label" for="time">Start Time <small>(Optional)</small></label>
             <div class="col-md-5">
-                <input disabled id="time" name="time" ng-model="searchObject.time" type="text" placeholder="Time" class="form-control input-md">
+                <input id="time" name="time" ng-model="searchObject.time" type="text" placeholder="Time" class="form-control input-md">
                 <span class="help-block">Put time of your trip (format HH:mm, eg. 12:10)</span>
             </div>
         </div>

@@ -8,11 +8,13 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Service;
 import pl.lodz.p.carpooling.address.City;
 import pl.lodz.p.carpooling.address.CityService;
+import pl.lodz.p.carpooling.converters.LocalDateTimeToTimestampConverter;
 import pl.lodz.p.carpooling.transit.route.Route;
 import pl.lodz.p.carpooling.transit.route.RouteService;
 import pl.lodz.p.carpooling.user.User;
 import pl.lodz.p.carpooling.user.UserService;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -92,7 +94,7 @@ public class DefaultTransitService implements TransitService {
     @Override
     public List<Transit> getTransits(City startCity, City endCity, LocalDateTime startDate) {
         Route route = routeService.getRoute(startCity, endCity);
-        return transitRepository.findTransitsByRouteAndStartDate(route,startDate);
+        return transitRepository.findTransitsByRouteAndStartDateGreaterThanEqual(route, startDate);
     }
 
     @Override
@@ -100,6 +102,4 @@ public class DefaultTransitService implements TransitService {
         Route route = routeService.getRoute(startCity, endCity);
         return transitRepository.findTransitsByRoute(route);
     }
-
-
 }
