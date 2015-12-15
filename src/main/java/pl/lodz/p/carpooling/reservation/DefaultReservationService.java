@@ -1,5 +1,6 @@
 package pl.lodz.p.carpooling.reservation;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class DefaultReservationService implements ReservationService {
 	public Reservation reserveTransit(String transitId, String username) {
 		User user = getUser(username);
 		Transit transit = getTransit(transitId);
-		Reservation reservation = new Reservation(user, transit);
+		Reservation reservation = new Reservation(user, transit, new Date());
 		reservationRepository.save(reservation);
 		return reservation;
 	}

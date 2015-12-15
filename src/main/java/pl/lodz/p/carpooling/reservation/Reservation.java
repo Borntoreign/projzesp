@@ -1,5 +1,7 @@
 package pl.lodz.p.carpooling.reservation;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,16 +27,23 @@ public class Reservation {
 	@JoinColumn
 	private Transit transit;
 
-	public Reservation(long id, User user, Transit transit) {
+	private Date date;
+	
+	public Reservation() {
+	}
+
+	public Reservation(long id, User user, Transit transit, Date date) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.transit = transit;
+		this.date = date;
 	}
-	
-	public Reservation(User user, Transit transit) {
+
+	public Reservation(User user, Transit transit, Date date) {
 		this.user = user;
 		this.transit = transit;
+		this.date = date;
 	}
 
 	public long getId() {
@@ -59,6 +68,14 @@ public class Reservation {
 
 	public void setTransit(Transit transit) {
 		this.transit = transit;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

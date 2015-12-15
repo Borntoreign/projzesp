@@ -118,5 +118,16 @@ angular.module('carpooling')
                     templateUrl: '/app/settings/edit.email.html',
                     controller: 'SettingsController'
                 })
+                .state('reservation', {
+                    url: '/reservation',
+                    parent: 'nav',
+                    abstract: true
+                })
+                 .state('reservation.my', {
+                    url: '/reservation/my',
+                    parent: 'nav',
+                    templateUrl: '/app/reservation/reservation.list.html',
+                    controller: 'ReservationController'
+                })
         }
     ]);

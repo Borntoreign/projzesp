@@ -18,7 +18,7 @@ public class ReservationController {
 	ReservationService reservationService;
 	
 	@RequestMapping(value = "reservation", method = RequestMethod.POST)
-    public ResponseEntity createTransit(@RequestBody Map<String, String> requestMap) {
+    public ResponseEntity createReservation(@RequestBody Map<String, String> requestMap) {
         try {
             Reservation reservation = reservationService.reserveTransit(requestMap.get("transitId"), requestMap.get("username"));
             return ResponseEntity.ok(reservation);
@@ -28,7 +28,7 @@ public class ReservationController {
     }
 	
 	@RequestMapping(value = "reservation/my/{user}", method = RequestMethod.GET)
-    public ResponseEntity getMyTransit(@PathVariable String user) {
+    public ResponseEntity getMyReservation(@PathVariable String user) {
         try {
             List<Reservation> reservations = reservationService.getReservationsByUsername(user);
             return ResponseEntity.ok(reservations);

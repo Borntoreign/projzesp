@@ -7,6 +7,7 @@
             'carpooling.transit',
             'carpooling.search',
             'carpooling.settings',
+            'carpooling.reservation',
             'ui.bootstrap',
             'ui.router',
             'ngCookies',
