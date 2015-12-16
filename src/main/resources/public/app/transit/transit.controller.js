@@ -1,5 +1,7 @@
 angular.module('carpooling.transit', []).controller('TransitController', ['$scope', '$rootScope', '$http', '$state',
     function ($scope, $rootScope, $http, $state) {
+        $scope.filters = { };
+
         $scope.createTransit = function (transit) {
             $http.post('/transit', {
                 'startCity': transit.startCity,
