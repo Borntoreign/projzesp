@@ -11,3 +11,46 @@
 .start-content {
     width: 100%;
 }
+
+/* ===== TRANSIT =====*/
+.transit {
+    cursor: pointer;
+    line-height: 1.5;
+    border-radius: 5px;
+    border-bottom: 1px solid #e0dfda;
+    clear: both;
+    padding: 15px;
+    position: relative;
+}
+
+.transit:hover {
+    background-color: #fdfcf7;
+}
+
+.transit-car {
+     width: 32px;
+     height: 19px;
+     background: url('../images/car.png') no-repeat;
+     display: inline-block;
+     padding: 0 10px;
+     margin-top: -3px;
+     vertical-align: middle;
+}
+
+.transit-archived {
+    width: 32px;
+    height: 32px;
+    background: url('../images/archive.png') no-repeat;
+    display: block;
+    padding: 15px;
+}
+
+.transit-info, .transit-remarks {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.transit-remarks {
+    float: right;
+    padding: 22px;
+}
