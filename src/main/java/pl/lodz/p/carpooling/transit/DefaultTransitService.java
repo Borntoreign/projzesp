@@ -56,6 +56,20 @@ public class DefaultTransitService implements TransitService {
         return transit;
     }
 
+    @Override
+    public Transit edit(Long id, String username, String startDate, String startCityName, String endCityName) {
+        Transit transit = transitRepository.findOne(id);
+        Route route = getRoute(startCityName, endCityName);
+        transit.setRoute(route);
+        User driver = userService.findUserByUsername(username);
+        transit.setDriver(driver);
+        String pattern = "dd-MM-yyyy HH:mm";
+        LocalDateTime date = LocalDateTime.parse(startDate, DateTimeFormat.forPattern(pattern));
+        transit.setStartDate(date);
+        transitRepository.save(transit);
+        return transit;
+    }
+
     private Route getRoute(String startCityName, String endCityName) {
         City city = cityService.getCity(startCityName);
         City startCity = city == null? new City(startCityName) : city;

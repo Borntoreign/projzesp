@@ -50,11 +50,14 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label" for="deleteButton"></label>
-            <div class="col-md-4">
+            <label class="col-md-2 control-label" for="deleteButton"></label>
+            <div class="col-md-2">
                 <button id="deleteButton" ng-click="deleteTransit(currentTransit)" name="deleteButton" class="btn btn-success">Delete</button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
+                <a ui-sref="transit.edit({id:currentTransit.id})" class="btn btn-primary btn-success">Edit</a>
+            </div>
+            <div class="col-md-2">
                 <button id="reserveButton" ng-click="reserveTransit(currentTransit)" name="reserveButton" class="btn btn-success">Reserve</button>
             </div>
         </div>

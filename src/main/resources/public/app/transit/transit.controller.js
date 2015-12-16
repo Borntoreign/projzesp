@@ -14,6 +14,20 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             });
         };
 
+        $scope.editTransit = function (transit) {
+            $http.put('/transit/' + transit.id,{
+                'startCity': transit.startCity,
+                'endCity': transit.endCity,
+                'driver': $rootScope.user.login,
+                'startDate': transit.date
+            }).success(function () {
+                $state.go('transit.my');
+                console.log('Edycja przebiegla pomyslenie.');
+            }).error(function (data) {
+                console.error('Nie udalo siê zedytowac przejazdu.');
+            });
+        };
+
         $scope.getTransitDetails = function () {
             var id = $state.params.id;
             $http({
@@ -63,6 +77,6 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             }).error(function (data) {
                 console.error('nie utworzono rezerwacji');
             });
-        }        
+        };
 
     }]);

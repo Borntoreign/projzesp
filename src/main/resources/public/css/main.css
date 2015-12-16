@@ -119,3 +119,12 @@ footer .glyphicon:hover {
 p {
     padding: 15px;
 }
+
+.ng-invalid {
+    border-color: red;
+}
+
+.ng-valid {
+    border-color: green;
+}
+

@@ -14,4 +14,6 @@ class TransitRepositoryImpl implements TransitRepositoryCustom {
     public List<Transit> findTransitByPassenger(User passenger) {
         return null;
     }
+
+
 }

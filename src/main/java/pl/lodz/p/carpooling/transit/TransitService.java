@@ -16,10 +16,11 @@ public interface TransitService {
 
     Transit create(String username, String startDate, String startCity, String endCity);
 
+    Transit edit(Long id, String username, String startDate, String startCityName, String endCityName);
+
     List<Transit> getTransitsByUsername(String username);
 
     Transit getTransit(Long id);
-
 
     void deleteTransit(Long id);
 

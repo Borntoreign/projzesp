@@ -53,6 +53,12 @@ angular.module('carpooling')
                     templateUrl: '/app/transit/transit.create.html',
                     controller: 'TransitController'
                 })
+                .state('transit.edit', {
+                    url: '/transit/edit/{id}',
+                    parent: 'nav',
+                    templateUrl: '/app/transit/transit.edit.html',
+                    controller: 'TransitController'
+                })
                 .state('transit.my', {
                     url: '/transit/my',
                     parent: 'nav',

@@ -49,6 +49,16 @@ public class TransitController {
         }
     }
 
+    @RequestMapping(value = "transit/{id}", method = RequestMethod.PUT)
+    public ResponseEntity editTransit(@RequestBody Map<String, String> requestMap, @PathVariable Long id) {
+        try {
+            Transit editedTransit = transitService.edit(id, requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"));
+            return ResponseEntity.created(new URI("/transit/" + editedTransit.getId())).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @RequestMapping(value = "transit/{id}", method = RequestMethod.DELETE)
     public ResponseEntity deleteTransit(@PathVariable Long id) {
         try {
