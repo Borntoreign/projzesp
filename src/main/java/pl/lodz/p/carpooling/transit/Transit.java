@@ -34,6 +34,8 @@ public class Transit {
     @Cascade(CascadeType.PERSIST)
     private List<User> passengers;
 
+    private boolean archived;
+
     public Transit() {
     }
 
@@ -41,6 +43,7 @@ public class Transit {
         this.route = route;
         this.startDate = startDate;
         this.driver = driver;
+        this.archived = false;
     }
 
     public long getId() {
@@ -79,5 +82,13 @@ public class Transit {
 
     public void setPassengers(List<User> passengers) {
         this.passengers = passengers;
+    }
+
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
     }
 }

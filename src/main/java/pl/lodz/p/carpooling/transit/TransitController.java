@@ -14,12 +14,13 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping(value = "transit")
 public class TransitController {
 
     @Autowired
     private TransitService transitService;
 
-    @RequestMapping(value = "transit", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity createTransit(@RequestBody Map<String, String> requestMap) {
         try {
             Transit createdTransit = transitService.create(requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"));
@@ -29,7 +30,7 @@ public class TransitController {
         }
     }
 
-    @RequestMapping(value = "transit/my/{user}", method = RequestMethod.GET)
+    @RequestMapping(value = "my/{user}", method = RequestMethod.GET)
     public ResponseEntity getMyTransit(@PathVariable String user) {
         try {
             List<Transit> transits = transitService.getTransitsByUsername(user);
@@ -39,7 +40,7 @@ public class TransitController {
         }
     }
 
-    @RequestMapping(value = "transit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public ResponseEntity getTransit(@PathVariable Long id) {
         try {
             Transit transit = transitService.getTransit(id);
@@ -49,7 +50,7 @@ public class TransitController {
         }
     }
 
-    @RequestMapping(value = "transit/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public ResponseEntity deleteTransit(@PathVariable Long id) {
         try {
             transitService.deleteTransit(id);

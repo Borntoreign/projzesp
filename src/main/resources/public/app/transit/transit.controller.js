@@ -63,6 +63,19 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             }).error(function (data) {
                 console.error('nie utworzono rezerwacji');
             });
-        }        
+        };
 
+        $scope.archiveTransit = function (transit) {
+            $http({
+                method: 'PATCH',
+                url: '/transits/' + transit.id,
+                data: {
+                    'archived': true
+                }
+            }).success(function () {
+                $state.go('transit.my');
+            }).error(function (error) {
+                console.error('archiveTransit error');
+            });
+        };
     }]);
