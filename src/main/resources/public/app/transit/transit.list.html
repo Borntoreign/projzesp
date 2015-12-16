@@ -1,6 +1,8 @@
 <div id="transits" ng-init="getMyTransit()">
     <div>You planned {{transits.length}} transits.</div>
-    <div class="transit" ng-repeat="transit in transits" ui-sref="transit.details({id:transit.id})">
+    <button id="showArchivedButton" ng-click="filters.archived = true" name="showArchivedButton" class="btn btn-success">Show only archived transits</button>
+    <button id="showAllButton" ng-click="filters = {}" name="showAllButton" class="btn btn-success">Show all transits</button>
+    <div class="transit" ng-repeat="transit in transits | filter:filters" ui-sref="transit.details({id:transit.id})">
         <div class="transit-info">
             <div class="transit-route">
                 <label>Route:</label>
