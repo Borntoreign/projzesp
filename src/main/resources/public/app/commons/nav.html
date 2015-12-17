@@ -17,6 +17,9 @@
                 <li ng-if="isAuthorize()">
                     <a href="#/settings">Settings</a>
                 </li>
+                <li ng-if="isAuthorize()">
+                    <a ui-sref="user.details({id:user.user.id})">Profile</a>
+                </li>
                 <li>
                     <login/>
                 </li>

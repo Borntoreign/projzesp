@@ -1,6 +1,6 @@
 angular.module('carpooling.transit', []).controller('TransitController', ['$scope', '$rootScope', '$http', '$state',
     function ($scope, $rootScope, $http, $state) {
-        $scope.filters = { };
+        $scope.filters = {};
 
         $scope.createTransit = function (transit) {
             $http.post('/transit', {
@@ -17,7 +17,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         };
 
         $scope.editTransit = function (transit) {
-            $http.put('/transit/' + transit.id,{
+            $http.put('/transit/' + transit.id, {
                 'startCity': transit.startCity,
                 'endCity': transit.endCity,
                 'driver': $rootScope.user.login,
@@ -26,7 +26,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 $state.go('transit.my');
                 console.log('Edycja przebiegla pomyslenie.');
             }).error(function (data) {
-                console.error('Nie udalo si� zedytowac przejazdu.');
+                console.error('Nie udało się zedytowac przejazdu.');
             });
         };
 
@@ -69,7 +69,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 return "Passenger";
             }
         };
-        
+
         $scope.reserveTransit = function (transit) {
             $http.post('/reservation', {
                 'transitId': transit.id,
