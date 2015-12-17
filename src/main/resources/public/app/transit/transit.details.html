@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="driver">Driver</label>
             <div class="col-md-5">
-                <div id="driver" name="driver">{{currentTransit.driver.firstName}} {{currentTransit.driver.lastName}}</div>
+                <a id="driver" name="driver" ui-sref="user.details({id:currentTransit.driver.id})">{{currentTransit.driver.firstName}} {{currentTransit.driver.lastName}}</a>
             </div>
         </div>
 

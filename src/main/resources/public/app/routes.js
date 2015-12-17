@@ -135,11 +135,22 @@ angular.module('carpooling')
                     parent: 'nav',
                     abstract: true
                 })
-                 .state('reservation.my', {
+                .state('reservation.my', {
                     url: '/reservation/my',
                     parent: 'nav',
                     templateUrl: '/app/reservation/reservation.list.html',
                     controller: 'ReservationController'
+                })
+                .state('user', {
+                    url: '/profile',
+                    parent: 'nav',
+                    abstract: true
+                })
+                .state('user.details', {
+                    url: '/profile/{id}',
+                    parent: 'nav',
+                    templateUrl: '/app/user/details.html',
+                    controller: 'UserController'
                 })
         }
     ]);
