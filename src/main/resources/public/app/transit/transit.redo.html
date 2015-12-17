@@ -1,0 +1,17 @@
+<form name="redoForm" class="form-horizontal" ng-init="fillTransitFields()">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Redo transit</legend>
+
+        <!-- Text input-->
+        <transit-form></transit-form>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="createButton"></label>
+            <div class="col-md-4">
+                <button ng-disabled="redoForm.$invalid" id="createButton" ng-click="redoTransit(currentTransit)"  name="createButton" class="btn btn-success">Create</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

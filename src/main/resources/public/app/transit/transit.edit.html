@@ -1,35 +1,11 @@
-<form name="editForm" class="form-horizontal" ng-init="getTransitDetails()">
+<form name="editForm" class="form-horizontal" ng-init="fillTransitFields()">
     <fieldset>
 
         <!-- Form Name -->
         <legend>Edit transit</legend>
 
         <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="startCity">Start City</label>
-            <div class="col-md-5">
-                <input id="startCity" ng-model="currentTransit.startCity" name="startCity" type="text" placeholder="Start City" class="form-control input-md" required="" >
-                <span class="help-block">Search place, where you will start your trip</span>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="endCity">End City</label>
-            <div class="col-md-5">
-                <input id="endCity" name="endCity" ng-model="currentTransit.endCity" type="text" placeholder="End City" class="form-control input-md" required="">
-                <span class="help-block">Search place, where you will end your trip</span>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Date</label>
-            <div class="col-md-5">
-                <input id="date" ng-model="currentTransit.date" name="date" type="text" placeholder="Date" class="form-control input-md" required="">
-                <span class="help-block">Start date of trip (format: dd-MM-yyyy HH:mm, eg. 11-02-2015 12:10)</span>
-            </div>
-        </div>
+        <transit-form><</transit-form>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="editButton"></label>

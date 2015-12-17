@@ -18,15 +18,29 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
 
         $scope.editTransit = function (transit) {
             $http.put('/transit/' + transit.id,{
-                'startCity': transit.startCity,
-                'endCity': transit.endCity,
+                'startCity': transit.route.startCity.cityName,
+                'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
-                'startDate': transit.date
+                'startDate': transit.startDate
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Edycja przebiegla pomyslenie.');
             }).error(function (data) {
-                console.error('Nie udalo siê zedytowac przejazdu.');
+                console.error('Nie udalo sie zedytowac przejazdu.');
+            });
+        };
+
+        $scope.redoTransit = function (transit) {
+            $http.post('/transit', {
+                'startCity': transit.route.startCity.cityName,
+                'endCity': transit.route.endCity.cityName,
+                'driver': $rootScope.user.login,
+                'startDate': transit.startDate
+            }).success(function () {
+                $state.go('transit.my');
+                console.log('Dodanie zarchiwizowanego przejazdu przebieglo pomyslnie.');
+            }).error(function (data) {
+                console.error('Dodanie zarchiwizowanego przejazdu nie udalo sie.');
             });
         };
 
@@ -39,6 +53,21 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 $rootScope.currentTransit = response;
             }).error(function (error) {
                 console.error('getTransitDetails error');
+            });
+        };
+
+        $scope.fillTransitFields = function () {
+            var id = $state.params.id;
+            $http({
+                method: 'GET',
+                url: '/transit/' + id
+            }).success(function (response) {
+                $rootScope.currentTransit = response;
+                $scope.currentTransit.route.startCity.cityName = response.route.startCity.cityName;
+                $scope.currentTransit.route.endCity.cityName = response.route.endCity.cityName;
+                $scope.currentTransit.startDate = response.startDate;
+            }).error(function (error) {
+                console.error('Nie udalo sie pobrac przejazdu i wypelnic pol.');
             });
         };
 
@@ -94,4 +123,10 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 console.error('archiveTransit error');
             });
         };
-    }]);
+
+    }]).directive('transitForm', function(){
+    return {
+        restrict: 'E',
+        templateUrl: '/app/transit/transit-form.html'
+    }
+});

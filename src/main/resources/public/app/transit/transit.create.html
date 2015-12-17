@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form class="form-horizontal" name="createForm">
     <fieldset>
 
         <!-- Form Name -->
@@ -34,7 +34,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="createButton"></label>
             <div class="col-md-4">
-                <button id="createButton" ng-click="createTransit(transit)"  name="createButton" class="btn btn-success">Create</button>
+                <button ng-disabled="createForm.$invalid" id="createButton" ng-click="createTransit(transit)"  name="createButton" class="btn btn-success">Create</button>
             </div>
         </div>
     </fieldset>
