@@ -105,6 +105,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'username': $rootScope.user.login
             }).success(function () {
                 console.log('utworzono rezerwacje');
+                $state.go('reservation.my');
             }).error(function (data) {
                 console.error('nie utworzono rezerwacji');
             });
