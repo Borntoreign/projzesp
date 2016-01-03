@@ -55,7 +55,7 @@
                 <button id="archiveButton" ng-click="archiveTransit(currentTransit)" name="archiveButton" class="btn btn-success" ng-hide="currentTransit.archived">Archive</button>
                 <button id="redoButton" ui-sref="transit.redo({id:currentTransit.id})" name="redoButton" class="btn btn-success" ng-show="currentTransit.archived" >Redo</button>
                 <button id="editButton" ui-sref="transit.edit({id:currentTransit.id})" name="editButton" class="btn btn-success">Edit</button>
-                <button id="reserveButton" ng-click="reserveTransit(currentTransit)" name="reserveButton" class="btn btn-success">Reserve</button>
+                <button id="reserveButton" ng-click="reserveTransit(currentTransit)" name="reserveButton" class="btn btn-success" ng-show="canReserve(currentTransit)">Reserve</button>
             </div>
         </div>
     </fieldset>

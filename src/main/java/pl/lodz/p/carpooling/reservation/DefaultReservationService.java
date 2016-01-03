@@ -33,6 +33,7 @@ public class DefaultReservationService implements ReservationService {
 	public Reservation reserveTransit(String transitId, String username) {
 		User user = getUser(username);
 		Transit transit = getTransit(transitId);
+		transit.getPassengers().add(user);
 		Reservation reservation = new Reservation(user, transit, new Date());
 		reservationRepository.save(reservation);
 		return reservation;

@@ -109,6 +109,19 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 console.error('nie utworzono rezerwacji');
             });
         };
+        
+        $scope.canReserve = function (transit) {
+            if (transit.driver.id === $rootScope.user.user.id) {
+                return false;
+            } else {
+            	for (i = 0; i < transit.passengers.length; i++) {
+            		if(transit.passengers[i].id == $rootScope.user.user.id){
+            			return false;
+            		}
+            	}
+            	return true;
+            }
+        };
 
         $scope.archiveTransit = function (transit) {
             $http({
