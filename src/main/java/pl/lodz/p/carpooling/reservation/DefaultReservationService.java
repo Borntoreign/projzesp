@@ -46,6 +46,16 @@ public class DefaultReservationService implements ReservationService {
 		return reservations;
 	}
 	
+	@Override
+	public void deleteReservation(Long id) {
+		Reservation reservation = (Reservation) reservationRepository.getOne(id);
+		User user = reservation.getUser();
+		Transit transit = reservation.getTransit();
+		transit.getPassengers().remove(user);
+		reservationRepository.save(reservation);
+		reservationRepository.delete(id);		
+	}
+	
 	private User getUser(String username){
 		return userService.findUserByUsername(username);
 	}

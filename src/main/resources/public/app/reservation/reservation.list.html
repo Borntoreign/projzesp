@@ -10,7 +10,10 @@
         <tr ng-repeat="reservation in reservations">
             <td class="text-center">{{$index+1}}</td>
             <td class="text-center">{{reservation.date | date:'yyyy-MM-dd HH:mm'}}</td>
-            <td class="text-center"><button id="reserveButton" name="detailsButton" class="btn btn-success">Details transit</button></td>
+            <td class="text-center">
+            	<button id="detailsButton" name="detailsButton" class="btn btn-success" ui-sref="transit.details({id:reservation.transit.id})">Details transit</button>
+            	<button id="resignButton" name="resignButton" class="btn btn-success" ng-click="deleteReservation(reservation)">Resign</button>
+            </td>
         </tr>
     </tbody>
 </table>
