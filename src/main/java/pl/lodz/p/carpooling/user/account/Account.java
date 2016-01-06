@@ -62,4 +62,14 @@ public class Account {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

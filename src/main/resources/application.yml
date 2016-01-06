@@ -9,3 +9,7 @@ spring:
     url: "jdbc:h2:~/carpooling;AUTO_SERVER=TRUE;MODE=PostgreSQL;"
     username: sa
     password:
+
+logging:
+  level:
+    pl.lodz.p.carpooling: DEBUG

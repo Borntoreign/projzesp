@@ -1,7 +1,5 @@
 package pl.lodz.p.carpooling.user.account;
 
-import javax.security.auth.login.AccountNotFoundException;
-
 /**
  * Created by Mateusz Surmanski on 07.11.15.
  */
