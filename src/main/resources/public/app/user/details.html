@@ -6,6 +6,12 @@
         <legend>Profile</legend>
 
         <div class="form-group">
+            <div class="col-md-9">
+                <div id="avatar" name="avatar"><img width="150" height="150" src="/images/avatars/thumbs/{{currentUser.avatar}}" title="Avatar {{currentUser.firstName}} {{currentUser.lastName}}" alt="Avatar {{currentUser.firstName}} {{currentUser.lastName}}"/></div>
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="col-md-4 control-label" for="firstname">First name</label>
             <div class="col-md-5">
                 <div id="firstname" name="firstname">{{currentUser.firstName}}</div>
