@@ -14,21 +14,26 @@ import javax.persistence.*;
 @Table(name="USERS")
 public class User {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String firstName;
+
     private String lastName;
+
     @ManyToOne
     @Cascade(CascadeType.PERSIST)
     private City city;
+
     @Email
     private String email;
+
     private String phoneNumber;
 
-    public User() {
-    }
+    private String avatar;
+
+    public User() {}
 
     public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -80,15 +85,24 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"id=" + id +
-				", firstName='" + firstName + '\'' +
-				", lastName='" + lastName + '\'' +
-				", city=" + city +
-				", email='" + email + '\'' +
-				", phoneNumber='" + phoneNumber + '\'' +
-				'}';
-	}
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", city=" + city +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", avatar=" + avatar +
+                '}';
+    }
 }
