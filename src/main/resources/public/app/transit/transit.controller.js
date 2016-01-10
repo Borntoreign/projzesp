@@ -126,6 +126,24 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             	return true;
             }
         };
+        
+        $scope.canEdit = function (transit) {
+            if (transit.driver.id === $rootScope.user.user.id) {
+                return true;
+            }
+            return false;
+        };
+        
+        $scope.canArchive = function (transit) {
+            if (transit.driver.id === $rootScope.user.user.id) {
+                if(transit.archived)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        };
 
         $scope.archiveTransit = function (transit) {
             $http({
