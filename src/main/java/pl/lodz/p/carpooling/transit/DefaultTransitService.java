@@ -1,6 +1,7 @@
 package pl.lodz.p.carpooling.transit;
 
 import com.google.common.collect.Lists;
+import java.math.BigDecimal;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,18 +47,19 @@ public class DefaultTransitService implements TransitService {
     }
 
     @Override
-    public Transit create(String username, String startDate, String startCityName, String endCityName) {
+    public Transit create(String username, String startDate, String startCityName, String endCityName, String cost) {
         Route route = getRoute(startCityName, endCityName);
         User driver = userService.findUserByUsername(username);
         String pattern = "dd-MM-yyyy HH:mm";
         LocalDateTime date = LocalDateTime.parse(startDate, DateTimeFormat.forPattern(pattern));
         Transit transit = new Transit(route, date, driver);
+        transit.setCost(new BigDecimal(cost));
         transitRepository.save(transit);
         return transit;
     }
 
     @Override
-    public Transit edit(Long id, String username, String startDate, String startCityName, String endCityName) {
+    public Transit edit(Long id, String username, String startDate, String startCityName, String endCityName, String cost) {
         Transit transit = transitRepository.findOne(id);
         Route route = getRoute(startCityName, endCityName);
         transit.setRoute(route);
@@ -66,6 +68,7 @@ public class DefaultTransitService implements TransitService {
         String pattern = "dd-MM-yyyy HH:mm";
         LocalDateTime date = LocalDateTime.parse(startDate, DateTimeFormat.forPattern(pattern));
         transit.setStartDate(date);
+        transit.setCost(new BigDecimal(cost));
         transitRepository.save(transit);
         return transit;
     }

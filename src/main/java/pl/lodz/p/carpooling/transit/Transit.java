@@ -1,5 +1,6 @@
 package pl.lodz.p.carpooling.transit;
 
+import java.math.BigDecimal;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.joda.time.LocalDateTime;
@@ -8,6 +9,8 @@ import pl.lodz.p.carpooling.user.User;
 
 import javax.persistence.*;
 import java.util.List;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 
 /**
  * Created by Mateusz Surmanski on 08.11.15.
@@ -33,6 +36,10 @@ public class Transit {
     @ManyToMany
     @Cascade(CascadeType.PERSIST)
     private List<User> passengers;
+    
+    @DecimalMin("0.00")
+    @Digits(integer=6, fraction=2)
+    private BigDecimal cost;
 
     private boolean archived;
 
@@ -91,4 +98,13 @@ public class Transit {
     public void setArchived(boolean archived) {
         this.archived = archived;
     }
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
+    }
+    
 }

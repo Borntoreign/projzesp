@@ -43,6 +43,7 @@ public class TransitServiceTest {
     public static final String END_CITY = "Warszawa";
     public static final String START_DATE = "20-11-2014 20:12";
     public static final String USERNAME = "driver";
+    public static final String COST = "12.12";
 
     private TransitService transitService;
 
@@ -81,7 +82,7 @@ public class TransitServiceTest {
         when(this.userService.findUserByUsername(anyString())).thenReturn(user);
         when(this.cityService.getCity(anyString())).thenReturn(null);
         when(this.routeService.getRoute(any(City.class), any(City.class))).thenReturn(new Route(new City(START_CITY), new City(END_CITY)));
-        Transit transit = transitService.create(USERNAME, START_DATE, START_CITY, END_CITY);
+        Transit transit = transitService.create(USERNAME, START_DATE, START_CITY, END_CITY, COST);
 
         Transit transitResult = transitRepository.getOne(transit.getId());
         assertThat(transitResult).isNotNull();
@@ -92,6 +93,9 @@ public class TransitServiceTest {
         assertThat(transitResult.getRoute()).isNotNull();
         assertThat(transitResult.getRoute().getStartCity().getCityName()).isEqualTo(START_CITY);
         assertThat(transitResult.getRoute().getEndCity().getCityName()).isEqualTo(END_CITY);
+        System.out.println(transitResult.getCost());
+        assertThat(transitResult.getCost()).isNotNull();
+        assertThat(transitResult.getCost()).isEqualTo(COST);
 
     }
 

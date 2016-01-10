@@ -7,7 +7,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'startCity': transit.startCity,
                 'endCity': transit.endCity,
                 'driver': $rootScope.user.login,
-                'startDate': transit.date
+                'startDate': transit.date,
+                'cost':transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('dodano');
@@ -21,7 +22,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'startCity': transit.route.startCity.cityName,
                 'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
-                'startDate': transit.startDate
+                'startDate': transit.startDate,
+                'cost':transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Edycja przebiegla pomyslenie.');
@@ -35,7 +37,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'startCity': transit.route.startCity.cityName,
                 'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
-                'startDate': transit.startDate
+                'startDate': transit.startDate,
+                'cost':transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Dodanie zarchiwizowanego przejazdu przebieglo pomyslnie.');

@@ -1,5 +1,6 @@
 package pl.lodz.p.carpooling.transit;
 
+import java.math.BigDecimal;
 import org.joda.time.LocalDateTime;
 import pl.lodz.p.carpooling.address.City;
 
@@ -11,9 +12,9 @@ import java.util.List;
 public interface TransitService {
     Transit create(Transit transit);
 
-    Transit create(String username, String startDate, String startCity, String endCity);
+    Transit create(String username, String startDate, String startCity, String endCity, String cost);
 
-    Transit edit(Long id, String username, String startDate, String startCityName, String endCityName);
+    Transit edit(Long id, String username, String startDate, String startCityName, String endCityName, String cost);
 
     List<Transit> getTransitsByUsername(String username);
 
