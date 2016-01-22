@@ -59,7 +59,7 @@ public class Transit {
     }
 
     public String getStartDate() {
-        return startDate.toString("dd MMM yyyy HH:mm");
+        return startDate.toString("dd-MM-yyyy HH:mm");
     }
 
     public LocalDateTime getStartDateObject(){return startDate;}
