@@ -26,6 +26,7 @@ angular.module('carpooling.reservation', []).controller('ReservationController',
         $scope.deleteReservation = function (reservation) {
             $http.delete('/reservation/' + reservation.id).success(function () {
                 console.log('Reservation is deleted');
+                getMyReservation();
                 $state.go('reservation.my');
             }).error(function (error) {
                 console.error('deleteReservation error');

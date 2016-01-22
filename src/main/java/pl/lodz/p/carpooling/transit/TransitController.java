@@ -23,7 +23,7 @@ public class TransitController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity createTransit(@RequestBody Map<String, String> requestMap) {
         try {
-            Transit createdTransit = transitService.create(requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"));
+            Transit createdTransit = transitService.create(requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"), requestMap.get("cost"));
             return ResponseEntity.created(new URI("/transit/" + createdTransit.getId())).build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -34,7 +34,7 @@ public class TransitController {
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public ResponseEntity editTransit(@RequestBody Map<String, String> requestMap, @PathVariable Long id) {
         try {
-            Transit editedTransit = transitService.edit(id, requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"));
+            Transit editedTransit = transitService.edit(id, requestMap.get("driver"), requestMap.get("startDate"), requestMap.get("startCity"), requestMap.get("endCity"), requestMap.get("cost"));
             return ResponseEntity.created(new URI("/transit/" + editedTransit.getId())).build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

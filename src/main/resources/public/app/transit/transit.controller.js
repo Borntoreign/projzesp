@@ -7,7 +7,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'startCity': transit.startCity,
                 'endCity': transit.endCity,
                 'driver': $rootScope.user.login,
-                'startDate': transit.date
+                'startDate': transit.date,
+                'cost':transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('dodano');
@@ -21,7 +22,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'startCity': transit.route.startCity.cityName,
                 'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
-                'startDate': transit.startDate
+                'startDate': transit.startDate,
+                'cost':transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Edycja przebiegla pomyslenie.');
@@ -35,7 +37,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'startCity': transit.route.startCity.cityName,
                 'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
-                'startDate': transit.startDate
+                'startDate': transit.startDate,
+                'cost':transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Dodanie zarchiwizowanego przejazdu przebieglo pomyslnie.');
@@ -105,9 +108,41 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'username': $rootScope.user.login
             }).success(function () {
                 console.log('utworzono rezerwacje');
+                $state.go('reservation.my');
             }).error(function (data) {
                 console.error('nie utworzono rezerwacji');
             });
+        };
+        
+        $scope.canReserve = function (transit) {
+            if (transit.driver.id === $rootScope.user.user.id) {
+                return false;
+            } else {
+            	for (i = 0; i < transit.passengers.length; i++) {
+            		if(transit.passengers[i].id == $rootScope.user.user.id){
+            			return false;
+            		}
+            	}
+            	return true;
+            }
+        };
+        
+        $scope.canEdit = function (transit) {
+            if (transit.driver.id === $rootScope.user.user.id) {
+                return true;
+            }
+            return false;
+        };
+        
+        $scope.canArchive = function (transit) {
+            if (transit.driver.id === $rootScope.user.user.id) {
+                if(transit.archived)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         };
 
         $scope.archiveTransit = function (transit) {

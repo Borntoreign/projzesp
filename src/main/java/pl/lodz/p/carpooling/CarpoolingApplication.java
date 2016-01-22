@@ -7,16 +7,16 @@ import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class CarpoolingApplication {
-
+public class CarpoolingApplication
+{
     public static void main(String[] args) {
         SpringApplication.run(CarpoolingApplication.class, args);
     }
 
-	@Bean
-	public ServletRegistrationBean h2servletRegistration() {
-		ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
-		registration.addUrlMappings("/console/*");
-		return registration;
-	}
+    @Bean
+    public ServletRegistrationBean h2servletRegistration() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
+        registration.addUrlMappings("/console/*");
+        return registration;
+    }
 }

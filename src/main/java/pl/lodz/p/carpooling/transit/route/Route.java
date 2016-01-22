@@ -5,7 +5,6 @@ import org.hibernate.annotations.CascadeType;
 import pl.lodz.p.carpooling.address.City;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 /**
  * Created by Mateusz Surmanski on 08.11.15.
@@ -53,4 +52,12 @@ public class Route {
         this.endCity = endCity;
     }
 
+    @Override
+    public String toString() {
+        return "Route{" +
+                "id=" + id +
+                ", startCity=" + startCity +
+                ", endCity=" + endCity +
+                '}';
+    }
 }

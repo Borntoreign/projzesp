@@ -130,6 +130,12 @@ angular.module('carpooling')
                     templateUrl: '/app/settings/edit.email.html',
                     controller: 'SettingsController'
                 })
+                .state('settings.avatar', {
+                    url: '/settings/avatar',
+                    parent: 'settingslayout',
+                    templateUrl: '/app/settings/edit.avatar.html',
+                    controller: 'FileUploadController'
+                })
                 .state('reservation', {
                     url: '/reservation',
                     parent: 'nav',

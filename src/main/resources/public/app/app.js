@@ -9,6 +9,7 @@
             'carpooling.settings',
             'carpooling.reservation',
             'carpooling.user',
+            'carpooling.fileupload',
             'ui.bootstrap',
             'ui.router',
             'ngCookies',

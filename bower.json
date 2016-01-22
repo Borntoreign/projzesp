@@ -12,7 +12,8 @@
     "angular-ui-validate": "1.2.x",
     "bootstrap": "3.x",
     "font-awesome": "4.x",
-    "bootstrap-ui-datetime-picker": "~1.2.5"
+    "bootstrap-ui-datetime-picker": "~1.2.5",
+    "dropzone": "4.2.0"
   },
   "overrides": {
     "bootstrap": {

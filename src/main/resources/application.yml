@@ -9,3 +9,17 @@ spring:
     url: "jdbc:h2:~/carpooling;AUTO_SERVER=TRUE;MODE=PostgreSQL;"
     username: sa
     password:
+
+file:
+  upload:
+    images:
+      path: src/main/resources/public/images
+      avatars:
+        path: ${file.upload.images.path}/avatars/
+        thumbnail:
+          path: ${file.upload.images.avatars.path}/thumbs/
+        maxLongSide: 150
+
+logging:
+  level:
+    pl.lodz.p.carpooling: DEBUG

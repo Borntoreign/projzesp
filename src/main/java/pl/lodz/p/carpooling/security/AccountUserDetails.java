@@ -10,14 +10,13 @@ import java.util.Collection;
 /**
  * Created by Mateusz Surmanski on 01.11.15.
  */
-public class AccountUserDetails implements UserDetails {
-
+public class AccountUserDetails implements UserDetails
+{
     private final Account account;
 
     public AccountUserDetails(Account account) {
         this.account = account;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -59,5 +58,7 @@ public class AccountUserDetails implements UserDetails {
         return true;
     }
 
-
+    public Account getAccount() {
+        return account;
+    }
 }

@@ -33,6 +33,7 @@ public class DefaultReservationService implements ReservationService {
 	public Reservation reserveTransit(String transitId, String username) {
 		User user = getUser(username);
 		Transit transit = getTransit(transitId);
+		transit.getPassengers().add(user);
 		Reservation reservation = new Reservation(user, transit, new Date());
 		reservationRepository.save(reservation);
 		return reservation;
@@ -43,6 +44,16 @@ public class DefaultReservationService implements ReservationService {
 		User user = getUser(username);
 		List<Reservation> reservations = reservationRepository.findReservationsByUser(user);
 		return reservations;
+	}
+	
+	@Override
+	public void deleteReservation(Long id) {
+		Reservation reservation = (Reservation) reservationRepository.getOne(id);
+		User user = reservation.getUser();
+		Transit transit = reservation.getTransit();
+		transit.getPassengers().remove(user);
+		reservationRepository.save(reservation);
+		reservationRepository.delete(id);		
 	}
 	
 	private User getUser(String username){

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  * Created by Mateusz Surmanski on 01.11.15.
  */
 @Repository
-interface AccountRepository extends JpaRepository<Account, Long> {
-
+public interface AccountRepository extends JpaRepository<Account, Long>
+{
     Account findAccountByLogin(String login);
 }

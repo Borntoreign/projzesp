@@ -8,5 +8,6 @@ public interface ReservationService {
 	Reservation reserveTransit(String transitId, String username);
 	
 	List<Reservation> getReservationsByUsername(String username);
-
+	
+	void deleteReservation(Long id);
 }
