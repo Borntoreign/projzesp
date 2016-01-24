@@ -1,5 +1,6 @@
 package pl.lodz.p.carpooling.reservation;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class DefaultReservationService implements ReservationService {
 		User user = getUser(username);
 		Transit transit = getTransit(transitId);
 		transit.getPassengers().add(user);
+		transit.setCostPerPerson(transit.getCost().divide(new BigDecimal(transit.getPassengers().size()+1)));
 		Reservation reservation = new Reservation(user, transit, new Date());
 		reservationRepository.save(reservation);
 		return reservation;

@@ -2,8 +2,12 @@
     <div>You planned {{transits.length}} transits.</div>
     <button id="showArchivedButton" ng-click="filters.archived = true" name="showArchivedButton" class="btn btn-success">Show only archived transits</button>
     <button id="showAllButton" ng-click="filters = {}" name="showAllButton" class="btn btn-success">Show all transits</button>
-    <button id="showActualButton" ng-click="filters.startDate " name="showActualButton" class="btn btn-success">Show actual transits</button>
-    <div class="transit" ng-repeat="transit in transits | filter:filters" ui-sref="transit.details({id:transit.id})">
+    <button id="showActualButton" ng-click="showOnlyUpToDateTransits = true" name="showActualButton" class="btn btn-success">Show actual transits</button>
+    <div class="transit"
+         ng-repeat="transit in transits
+            | filter:filters
+            | filter: { startDate: Date.now() } : greaterOrEqual"
+         ui-sref="transit.details({id:transit.id})">
         <div class="transit-info">
             <div class="transit-route">
                 <label>Route:</label>

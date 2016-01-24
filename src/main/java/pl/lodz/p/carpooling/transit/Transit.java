@@ -41,6 +41,10 @@ public class Transit {
     @Digits(integer=6, fraction=2)
     private BigDecimal cost;
 
+    @DecimalMin("0.00")
+    @Digits(integer=6, fraction=2)
+    private BigDecimal costPerPerson;
+
     private boolean archived;
 
     public Transit() {
@@ -90,6 +94,10 @@ public class Transit {
     public void setPassengers(List<User> passengers) {
         this.passengers = passengers;
     }
+
+    public BigDecimal getCostPerPerson() { return costPerPerson; }
+
+    public void setCostPerPerson(BigDecimal costPerPerson) { this.costPerPerson = costPerPerson; }
 
     public boolean isArchived() {
         return archived;
