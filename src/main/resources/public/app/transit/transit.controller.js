@@ -1,12 +1,6 @@
 angular.module('carpooling.transit', []).controller('TransitController', ['$scope', '$rootScope', '$http', '$state',
     function ($scope, $rootScope, $http, $state) {
-        $scope.filters = {};
-        $scope.showOnlyUpToDateTransits = false;
-
-        $scope.greaterOrEqual = function (actual, expected) {
-            return actual >= expected ||
-                !$scope.showOnlyUpToDateTransits;
-        };
+        $scope.filters = { };
 
         $scope.createTransit = function (transit) {
             $http.post('/transit', {
@@ -69,15 +63,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             var id = $state.params.id;
             $http({
                 method: 'GET',
-                url: '/transit/' + id,
-                transformResponse: function (requestBody) {
-                    requestBody = JSON.parse(requestBody);
-                    requestBody.map(function (transit) {
-                        transit.mojaNowaZmienna = 123;
-                        return transit;
-                    });
-                    return requestBody;
-                }
+                url: '/transit/' + id
             }).success(function (response) {
                 $rootScope.currentTransit = response;
                 $scope.currentTransit.route.startCity.cityName = response.route.startCity.cityName;
@@ -91,23 +77,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         $scope.getMyTransit = function () {
             $http({
                 method: 'GET',
-                url: '/transit/my/' + $rootScope.user.login,
-                transformResponse: function (requestBody) {
-                    requestBody = JSON.parse(requestBody);
-                    requestBody.map(function (transit) {
-                        var localDateObject = transit.startDateObject;
-                        var dateString = localDateObject.year + '/' +
-                            localDateObject.monthOfYear + '/' +
-                            localDateObject.dayOfMonth + ' ' +
-                            localDateObject.hourOfDay + ':' +
-                            localDateObject.minuteOfHour + ':' +
-                            localDateObject.secondOfMinute + '.' +
-                            localDateObject.millisOfSecond;
-                        transit.timeStamp = Date.parse(dateString);
-                        return transit;
-                    });
-                    return requestBody;
-                }
+                url: '/transit/my/' + $rootScope.user.login
             }).success(function (response) {
                 $scope.transits = response;
             }).error(function (error) {
