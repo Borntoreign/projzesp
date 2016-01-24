@@ -37,12 +37,8 @@ public class Transit {
     @Cascade(CascadeType.PERSIST)
     private List<User> passengers;
     
-    @DecimalMin("0.00")
-    @Digits(integer=6, fraction=2)
     private BigDecimal cost;
 
-    @DecimalMin("0.00")
-    @Digits(integer=6, fraction=2)
     private BigDecimal costPerPerson;
 
     private boolean archived;
