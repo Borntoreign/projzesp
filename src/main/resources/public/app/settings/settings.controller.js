@@ -21,20 +21,14 @@ angular.module('carpooling.settings', [])
                 }
             };
 
-            $scope.updateUser = function (newPhoneNumber) {
-                if (!newPhoneNumber || newPhoneNumber === $rootScope.user.user.phoneNumber) {
-                    setAlert('New number is empty or is currently in use.', 'danger');
-                    return;
-                }
-
+            $scope.updateUser = function (profile) {
                 $http({
                     url: "/people/" + $rootScope.user.user.id,
                     method: "PATCH",
-                    data: {
-                        'phoneNumber': newPhoneNumber
-                    }
-                }).success(function () {
-                    $rootScope.user.user.phoneNumber = newPhoneNumber;
+                    data: $scope.profile,
+                }).success(function (data) {
+                    $rootScope.user.user.phoneNumber = profile.phoneNumber;
+                    $rootScope.user.user.city.cityName = profile.city.cityName;
                     setAlert('Settings Saved.', 'success');
                 }).error(function (data) {
                     setAlert('Error during saving changes.', 'danger');

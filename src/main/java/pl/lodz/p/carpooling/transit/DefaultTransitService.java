@@ -54,7 +54,10 @@ public class DefaultTransitService implements TransitService {
         LocalDateTime date = LocalDateTime.parse(startDate, DateTimeFormat.forPattern(pattern));
         Transit transit = new Transit(route, date, driver);
         transit.setCost(new BigDecimal(cost));
-        transit.setCostPerPerson(transit.getCost().divide(new BigDecimal(transit.getPassengers().size()+1)));
+        transit.setCostPerPerson(transit.getCost());
+        if(transit.getPassengers() != null) {
+            transit.setCostPerPerson(transit.getCost().divide(new BigDecimal(transit.getPassengers().size() + 1)));
+        }
         transitRepository.save(transit);
         return transit;
     }
