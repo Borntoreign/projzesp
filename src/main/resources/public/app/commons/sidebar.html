@@ -1,18 +1,34 @@
-<div class="navbar-default" role="navigation">
-    <div class="sidebar-nav navbar-collapse">
-        <ul class="nav" id="side-menu">
-            <li>
-                <a ui-sref="search.form"><i class="fa fa-dashboard fa-fw"></i>Search</a>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="nav-side-menu">
+    <div class="brand">
+        <i class="fa fa-skyatlas fa-lg"></i>
+
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+            <li ui-sref="transit.create">
+                    <i class="fa fa-dashboard fa-lg"></i> Create Transit
             </li>
-            <li>
-                <a ui-sref="transit.create"><i class="fa fa-dashboard fa-fw"></i>Create Transit</a>
+
+            <li ui-sref="search.form">
+                    <i class="fa fa-gift fa-lg"></i> Search
             </li>
-            <li>
-                <a ui-sref="transit.my"><i class="fa fa-dashboard fa-fw"></i>My Transits</a>
+
+
+            <li ui-sref="transit.my">
+                    <i class="fa fa-car fa-lg"></i> My Transit
             </li>
-            <li>
-                <a ui-sref="reservation.my"><i class="fa fa-dashboard fa-fw"></i>My Reservations</a>
+
+
+            <li ui-sref="reservation.my">
+                    <i class="fa fa-user fa-lg"></i> Reservation
             </li>
+
+
         </ul>
     </div>
 </div>

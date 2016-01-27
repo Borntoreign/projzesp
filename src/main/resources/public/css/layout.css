@@ -1,6 +1,7 @@
 .sidebar {
-    width: 20%;
+    padding-right: 1em;
     float: left;
+    position: relative;
 }
 
 .content {
@@ -21,6 +22,7 @@
     clear: both;
     padding: 15px;
     position: relative;
+
 }
 
 .transit:hover {
@@ -53,4 +55,9 @@
 .transit-remarks {
     float: right;
     padding: 22px;
+}
+
+#transits {
+    float: left;
+    width: 100%;
 }
