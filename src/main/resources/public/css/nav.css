@@ -3,17 +3,17 @@
     font-family: verdana;
     font-size: 12px;
     font-weight: 200;
-    background-color: #2e353d;
+    background-color: rgb(248,248,248);
     position: fixed;
     top: 0px;
     width: 200px;
     height: 100%;
-    color: #e1ffff;
+    color: rgb(119,119,135);
     position: relative;
     height: 100%
 }
 .nav-side-menu .brand {
-    background-color: #23282e;
+    background-color: rgb(248,248,248);
     line-height: 50px;
     display: block;
     text-align: center;
@@ -89,8 +89,8 @@
 }
 .nav-side-menu li {
     padding-left: 0px;
-    border-left: 3px solid #2e353d;
-    border-bottom: 1px solid #23282e;
+    border-left: 3px solid #ffffff;
+    border-bottom: 1px solid #e0dfda;
 }
 .nav-side-menu li a {
     text-decoration: none;
@@ -102,8 +102,8 @@
     padding-right: 20px;
 }
 .nav-side-menu li:hover {
-    border-left: 3px solid #d19b3d;
-    background-color: #4f5b69;
+    border-left: 4px solid #00AA00;
+    background-color: #f0f0f0;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
