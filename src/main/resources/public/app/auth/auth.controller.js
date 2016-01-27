@@ -20,7 +20,7 @@ angular.module('carpooling.auth', []).controller('AuthController', [
                 $http.get('/users/' + username).success(function (user) {
                         $rootScope.user = user;
                         $cookieStore.put('user', user.login);
-                        $location.path('/home');
+                        $location.path('/transit/my');
                     }
                 )
             }).error(function () {
