@@ -20,16 +20,17 @@
                 <li ng-if="isAuthorize()">
                     <a ui-sref="user.details({id:user.user.id})">Profile</a>
                 </li>
-                <li>
+                <li ng-if="isNotAuthorize()">
                     <login/>
                 </li>
                 <form class="navbar-form navbar-right">
-                <li ng-if="isNotAuthorize()">
-                    <button class="btn btn-primary btn-success" ng-click="openRegister('lg')">Register</button>
-                </li>
-                <li ng-if="isAuthorize()">
-                    <button type="button" class="btn btn-primary btn-success" ng-click="logout('/')">Log out</button>
-                </li>
+                    <li ng-if="isNotAuthorize()">
+                        <button class="btn btn-primary btn-success" ng-click="openRegister('lg')">Register</button>
+                    </li>
+                    <li ng-if="isAuthorize()">
+                        <button type="button" class="btn btn-primary btn-success" ng-click="logout('/')">Log out
+                        </button>
+                    </li>
                 </form>
             </ul>
         </div><!-- /.navbar-collapse -->

@@ -149,3 +149,11 @@ body {
 .menu-content > li {
     padding: 10px 20px 10px 20px;
 }
+
+.navbar-right {
+    margin-right: 0px;
+}
+
+.navbar-form {
+    padding-left: 0px;
+}
