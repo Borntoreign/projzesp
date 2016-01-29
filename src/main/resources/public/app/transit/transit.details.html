@@ -6,49 +6,49 @@
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="startCity">Start City</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="startCity" name="startCity">{{currentTransit.route.startCity.cityName}}</div>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="endCity">End City</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="endCity" name="endCity">{{currentTransit.route.endCity.cityName}}</div>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="startDate">Date</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="startDate" name="startDate">{{currentTransit.startDate}}</div>
             </div>
         </div>
         
         <div class="form-group">
             <label class="col-md-4 control-label" for="cost">Cost</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="cost" name="cost">{{currentTransit.cost}}</div>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="costPerPerson">Per person</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="costPerPerson" name="costPerPerson">{{currentTransit.costPerPerson}}</div>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="driver">Driver</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <a id="driver" name="driver" ui-sref="user.details({id:currentTransit.driver.id})">{{currentTransit.driver.firstName}} {{currentTransit.driver.lastName}}</a>
             </div>
         </div>
 
         <div class="form-group" ng-if="currentTransit.passengers.length > 0">
             <label class="col-md-4 control-label" for="passengers">Passengers</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="passengers" name="passengers" ng-repeat="passenger in currentTransit.passengers">
                     <div>{{passenger.firstName}} {{passenger.lastName}}</div>
                 </div>
@@ -57,7 +57,7 @@
 
         <div class="form-group" ng-if="currentTransit.passengers.length === 0">
             <label class="col-md-4 control-label" for="passengers">Passengers</label>
-            <div class="col-md-5">
+            <div class="col-md-5 form-text">
                 <div id="no-passengers" name="passengers">
                     No passengers to display
                 </div>

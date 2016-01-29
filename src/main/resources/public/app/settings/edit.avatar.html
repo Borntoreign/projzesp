@@ -1,9 +1,7 @@
 <form action="" class="form-horizontal" dropzone="" id="dropzone" name="editavatar" role="form">
     <fieldset>
         <legend>Edit avatar</legend>
-        <label>Note: The maximum size of your custom avatar is 150 by 150 pixels or 300.0 KB (whichever is smaller). Avatars larger than 150x150 pixels will be scaled down and can lose quality.</label>
-        <div ng-hide="!alertMessage" ng-class="alertMessageClass" role="alert">{{alertMessage}}</div>
-
+        <p class="bg-info">Note: The maximum size of your custom avatar is 150 by 150 pixels or 300.0 KB (whichever is smaller). Avatars larger than 150x150 pixels will be scaled down and can lose quality.</p>
         <div class="dz-default dz-message dropzone"></div>
 
         <div class="form-group">
@@ -20,6 +18,8 @@
         </div>
     </fieldset>
 </form>
+
+<div ng-hide="!alertMessage" ng-class="alertMessageClass" role="alert">{{alertMessage}}</div>
 
 <script type="text/javascript">
     Dropzone.autoDiscover = false;

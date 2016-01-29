@@ -132,5 +132,13 @@ input.ng-dirty.ng-valid {
 }
 
 #content {
-    padding: 15px;
+    padding: 15px 0px;
+}
+
+.dropzone {
+    margin: 15px 0px;
+}
+
+.form-text {
+    padding-top: 7px;
 }

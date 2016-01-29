@@ -1,6 +1,7 @@
 angular.module('carpooling.fileupload', []).controller('FileUploadController', ['$scope', '$rootScope', '$http', '$state',
     function ($scope, $rootScope, $http, $state) {
         $scope.filename = '';
+        $scope.alertMessage = '';
 
         $scope.uploadFile = function() {
             $scope.processDropzone();
@@ -9,6 +10,14 @@ angular.module('carpooling.fileupload', []).controller('FileUploadController', [
         $scope.reset = function() {
             $scope.resetDropzone();
         };
+
+        $scope.setAlert = function(msg, msgClass) {
+            if (!msgClass) {
+                msgClass = 'info';
+            }
+            $scope.alertMessage = msg;
+            $scope.alertMessageClass = 'alert alert-' + msgClass;
+        }
     }
 ]).directive('dropzone', function(){
     return {
@@ -34,6 +43,9 @@ angular.module('carpooling.fileupload', []).controller('FileUploadController', [
                     });
                 },
                 'success': function (file, response) {
+                    scope.$apply(function() {
+                        scope.setAlert('Your avatar has been saved.', 'success');
+                    });
                     this.removeAllFiles();
                 }
             };
