@@ -32,6 +32,11 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         $scope.getTodayTimeStamp = function () {
             return Date.now();
         };
+        /* TODO
+        $scope.mapListener = function (transit)
+        {
+            
+        }; */
 
         $scope.createTransit = function (transit) {
             $http.post('/transit', {

@@ -30,7 +30,7 @@
                 <span class="help-block">Start date of trip (format: dd-MM-yyyy HH:mm, eg. 11-02-2015 12:10)</span>
             </div>
         </div>
-        
+
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="date">Cost</label>
@@ -46,5 +46,18 @@
                 <button ng-disabled="createForm.$invalid" id="createButton" ng-click="createTransit(transit)"  name="createButton" class="btn btn-success">Create</button>
             </div>
         </div>
+        <!--TODO
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="createButton"></label>
+            <div class="col-md-4">
+                <google-map-directions map="{{map}}"
+                                       start-address="San Francisco"
+                                       end-address="Mountain View"
+                                       travel-mode="BICYCLING"
+                                       waypoints='[{"location": "Palo Alto"}, {"location": "San Mateo"}]'></google-map-directions>
+                <google-map map="{{map}}" latitude="37.779"
+                            longitude="-122.3892" api-key="AIzaSyAFFyY-oO_xWIRcwOLhRB6rmPysyXL2IRM"></google-map>
+            </div>
+        </div> -->
     </fieldset>
 </form>
