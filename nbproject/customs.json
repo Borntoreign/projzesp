@@ -1,0 +1,18 @@
+{
+    "elements": {
+        "ui-gmap-google-map": {
+            "attributes": {
+                "dragging": {},
+                "center": {},
+                "options": {},
+                "bounds": {},
+                "refresh": {},
+                "zoom": {},
+                "control": {},
+                "pan": {},
+                "events": {}
+            }
+        }
+    },
+    "attributes": {}
+}

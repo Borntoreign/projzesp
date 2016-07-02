@@ -6,7 +6,7 @@
     "angular-animate": "1.4.x",
     "angular-bootstrap": "0.13.x",
     "angular-cookies": "1.4.x",
-    "angular-google-maps": "2.2.x",
+    "angular-google-maps": "2.3.x",
     "angular-resource": "1.4.x",
     "angular-ui-router": "0.2.x",
     "angular-ui-validate": "1.2.x",
@@ -14,7 +14,9 @@
     "font-awesome": "4.x",
     "bootstrap-ui-datetime-picker": "~1.2.5",
     "dropzone": "4.2.0",
-    "google-map": "GoogleWebComponents/google-map#^1.1.10"
+    "google-map": "GoogleWebComponents/google-map#^1.1.10",
+    "ngmap": "^1.17.3",
+    "angularjs-google-directions": "^0.1.0"
   },
   "overrides": {
     "bootstrap": {

@@ -5,13 +5,13 @@ html, body {
 }
 
 .nav-side-menu {
-	height:80vh;
+    height:80vh;
 }
 
 .container {
     width: 100%;
     padding: 0 !important;
-   
+
 }
 
 .navbar {
@@ -146,4 +146,10 @@ input.ng-dirty.ng-valid {
 
 .form-text {
     padding-top: 7px;
+}
+
+.angular-google-map-container { height: 400px; }
+
+#map {
+    height: 100%;
 }

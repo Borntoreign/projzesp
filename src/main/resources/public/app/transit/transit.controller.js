@@ -5,11 +5,11 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             console.debug(actual, expected, actual >= expected);
             return actual >= expected;
         };
+            
 
         $scope.filteringRules = {
             showArchived: false,
             showUpToDate: false,
-
             reset: function () {
                 this.showArchived = false;
                 this.showUpToDate = false;
@@ -24,7 +24,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             $scope.filteringRules.showArchived = true;
         };
 
-        
+
         $scope.showUpToDateTransits = function () {
             $scope.filteringRules.showUpToDate = true;
         };
@@ -32,11 +32,8 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         $scope.getTodayTimeStamp = function () {
             return Date.now();
         };
-        /* TODO
-        $scope.mapListener = function (transit)
-        {
-            
-        }; */
+
+
 
         $scope.createTransit = function (transit) {
             $http.post('/transit', {
@@ -44,7 +41,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'endCity': transit.endCity,
                 'driver': $rootScope.user.login,
                 'startDate': transit.date,
-                'cost':transit.cost
+                'cost': transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('dodano');
@@ -54,12 +51,12 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         };
 
         $scope.editTransit = function (transit) {
-            $http.put('/transit/' + transit.id,{
+            $http.put('/transit/' + transit.id, {
                 'startCity': transit.route.startCity.cityName,
                 'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
                 'startDate': transit.startDate,
-                'cost':transit.cost
+                'cost': transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Edycja przebiegla pomyslenie.');
@@ -74,7 +71,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 'endCity': transit.route.endCity.cityName,
                 'driver': $rootScope.user.login,
                 'startDate': transit.startDate,
-                'cost':transit.cost
+                'cost': transit.cost
             }).success(function () {
                 $state.go('transit.my');
                 console.log('Dodanie zarchiwizowanego przejazdu przebieglo pomyslnie.');
@@ -105,6 +102,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 $scope.currentTransit.route.startCity.cityName = response.route.startCity.cityName;
                 $scope.currentTransit.route.endCity.cityName = response.route.endCity.cityName;
                 $scope.currentTransit.startDate = response.startDate;
+
             }).error(function (error) {
                 console.error('Nie udalo sie pobrac przejazdu i wypelnic pol.');
             });
@@ -119,12 +117,12 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                     requestBody.map(function (transit) {
                         var localDateObject = transit.startDateObject;
                         var dateString = localDateObject.year + '/' +
-                            localDateObject.monthOfYear + '/' +
-                            localDateObject.dayOfMonth + ' ' +
-                            localDateObject.hourOfDay + ':' +
-                            localDateObject.minuteOfHour + ':' +
-                            localDateObject.secondOfMinute + '.' +
-                            localDateObject.millisOfSecond;
+                                localDateObject.monthOfYear + '/' +
+                                localDateObject.dayOfMonth + ' ' +
+                                localDateObject.hourOfDay + ':' +
+                                localDateObject.minuteOfHour + ':' +
+                                localDateObject.secondOfMinute + '.' +
+                                localDateObject.millisOfSecond;
                         transit.timeStamp = Date.parse(dateString);
                         return transit;
                     });
@@ -153,7 +151,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 return "Passenger";
             }
         };
-        
+
         $scope.reserveTransit = function (transit) {
             $http.post('/reservation', {
                 'transitId': transit.id,
@@ -165,30 +163,30 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
                 console.error('nie utworzono rezerwacji');
             });
         };
-        
+
         $scope.canReserve = function (transit) {
             if (transit.driver.id === $rootScope.user.user.id) {
                 return false;
             } else {
-            	for (i = 0; i < transit.passengers.length; i++) {
-            		if(transit.passengers[i].id == $rootScope.user.user.id){
-            			return false;
-            		}
-            	}
-            	return true;
+                for (i = 0; i < transit.passengers.length; i++) {
+                    if (transit.passengers[i].id == $rootScope.user.user.id) {
+                        return false;
+                    }
+                }
+                return true;
             }
         };
-        
+
         $scope.canEdit = function (transit) {
             if (transit.driver.id === $rootScope.user.user.id) {
                 return true;
             }
             return false;
         };
-        
+
         $scope.canArchive = function (transit) {
             if (transit.driver.id === $rootScope.user.user.id) {
-                if(transit.archived)
+                if (transit.archived)
                 {
                     return false;
                 }
