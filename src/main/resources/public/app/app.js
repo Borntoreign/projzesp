@@ -17,5 +17,7 @@
             'ngAnimate',
             'ui.bootstrap.datetimepicker',
             'ui.validate',
+            'ui.bootstrap.dateparser',
+            'ui.bootstrap.position'
         ]);
 }());

@@ -211,6 +211,15 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             });
         };
 
+        $scope.isOpen = false;
+
+        $scope.openCalendar = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $scope.isOpen = true;
+        };
+
     }]).directive('transitForm', function(){
     return {
         restrict: 'E',

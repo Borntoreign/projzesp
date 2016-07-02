@@ -22,18 +22,21 @@
             </div>
         </div>
 
-        <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="date">Date</label>
-            <div class="col-md-5">
-                <input id="date" ng-model="transit.date" name="date" type="text" placeholder="Date" class="form-control input-md" required="">
-                <span class="help-block">Start date of trip (format: dd-MM-yyyy HH:mm, eg. 11-02-2015 12:10)</span>
+            <div class="col-md-4">
+                <input id="date" name="date"  type="text" class="form-control input-md" datetime-picker="dd-MM-yyyy HH:mm" date-format="dd-MM-yyyy HH:mm" ng-model="transit.date" is-open="isOpen" required=""/>
             </div>
+            <span class="input-group-btn col-md-1">
+                <button type="button" class="btn btn-default" ng-click="openCalendar($event, prop)"><i class="fa fa-calendar"></i></button>
+            </span>
         </div>
+
+        {{transit.date}}
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Cost</label>
+            <label class="col-md-4 control-label" for="cost">Cost</label>
             <div class="col-md-5">
                 <input id="cost" ng-model="transit.cost" name="date" type="text" placeholder="text" class="form-control input-md">
                 <span class="help-block"></span>
