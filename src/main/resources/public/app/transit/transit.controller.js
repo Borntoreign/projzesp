@@ -33,8 +33,6 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             return Date.now();
         };
 
-
-
         $scope.createTransit = function (transit) {
             $http.post('/transit', {
                 'startCity': transit.startCity,

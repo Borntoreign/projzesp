@@ -1,21 +1,20 @@
 package pl.lodz.p.carpooling.transit;
 
 import com.google.common.collect.Lists;
-import java.math.BigDecimal;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.ISODateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Service;
 import pl.lodz.p.carpooling.address.City;
 import pl.lodz.p.carpooling.address.CityService;
-import pl.lodz.p.carpooling.converters.LocalDateTimeToTimestampConverter;
 import pl.lodz.p.carpooling.transit.route.Route;
 import pl.lodz.p.carpooling.transit.route.RouteService;
 import pl.lodz.p.carpooling.user.User;
 import pl.lodz.p.carpooling.user.UserService;
 
-import java.sql.Timestamp;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,8 +49,7 @@ public class DefaultTransitService implements TransitService {
     public Transit create(String username, String startDate, String startCityName, String endCityName, String cost) {
         Route route = getRoute(startCityName, endCityName);
         User driver = userService.findUserByUsername(username);
-        String pattern = "dd-MM-yyyy HH:mm";
-        LocalDateTime date = LocalDateTime.parse(startDate, DateTimeFormat.forPattern(pattern));
+        LocalDateTime date = LocalDateTime.parse(startDate, ISODateTimeFormat.dateTime());
         Transit transit = new Transit(route, date, driver);
         transit.setCost(new BigDecimal(cost));
         transit.setCostPerPerson(transit.getCost());
