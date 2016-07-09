@@ -5,7 +5,6 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
             console.debug(actual, expected, actual >= expected);
             return actual >= expected;
         };
-            
 
         $scope.filteringRules = {
             showArchived: false,
@@ -34,6 +33,7 @@ angular.module('carpooling.transit', []).controller('TransitController', ['$scop
         };
 
         $scope.createTransit = function (transit) {
+
             $http.post('/transit', {
                 'startCity': transit.startCity,
                 'endCity': transit.endCity,

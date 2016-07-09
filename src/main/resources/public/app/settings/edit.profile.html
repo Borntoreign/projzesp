@@ -1,28 +1,31 @@
 <form class="form-horizontal" name="editprofile" role="form">
     <fieldset>
-        <legend>Edit profile</legend>
+        <legend>Edytuj profil</legend>
         <div ng-hide="!alertMessage" ng-class="alertMessageClass" role="alert">{{alertMessage}}</div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="phoneNumber">Phone Number</label>
+            <label class="col-md-4 control-label" for="phoneNumber">Numer telefonu</label>
             <div class="col-md-5">
                 <input id="phoneNumber" name="phoneNumber" ng-minlength="9" ng-maxlength="12" ng-model="profile.phoneNumber" type="text" class="form-control input-md" />
-                <span class="text-danger" ng-show="editprofile.phoneNumber.$invalid">You must enter valid phone number.</span>
+                <span class="text-danger" ng-show="editprofile.phoneNumber.$invalid">Musisz podać poprawny numer telefonu.</span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="location">Location</label>
+            <label class="col-md-4 control-label" for="location">Lokalizacja</label>
             <div class="col-md-5">
                 <input id="location" name="location" ng-model="profile.city.cityName" type="text" class="form-control input-md" />
-                <span class="text-danger" ng-show="editprofile.location.$invalid">You must enter valid location.</span>
+                <span class="text-danger"
+                      ng-show="editprofile.location.$invalid">Musisz podać poprawną lokalizację.</span>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="saveButton"></label>
             <div class="col-md-4">
-                <button ng-disabled="editprofile.$invalid || !editprofile.$dirty" id="saveButton" ng-click="updateUser(profile)" name="saveButton" class="btn btn-success">Save changes</button>
+                <button ng-disabled="editprofile.$invalid || !editprofile.$dirty" id="saveButton"
+                        ng-click="updateUser(profile)" name="saveButton" class="btn btn-success">Zapisz zmiany
+                </button>
             </div>
         </div>
     </fieldset>

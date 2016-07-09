@@ -2,12 +2,14 @@
     <section ng-if="isNotAuthorize()">
         <div class="form-group">
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Username" ng-model="username">
+                <input type="text" class="form-control" name="username" placeholder="Login" ng-model="username">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password">
+                <input type="password" class="form-control" name="password" placeholder="Hasło" ng-model="password">
             </div>
         </div>
-        <button type="submit" href="#" class="btn btn-primary btn-success" ng-click="login(username, password)">Log In</button>
+        <button type="submit" href="#" class="btn btn-primary btn-success" ng-click="login(username, password)">
+            Zaloguj
+        </button>
     </section>
 </form>

@@ -1,25 +1,28 @@
 <div class="form-group">
-    <label class="col-md-4 control-label" for="startCity">Start City</label>
+    <label class="col-md-4 control-label" for="startCity">Miasto wyjazdu</label>
     <div class="col-md-5">
-        <input id="startCity" ng-model="currentTransit.route.startCity.cityName" name="startCity" type="text" placeholder="Start City" class="form-control input-md" required="" >
+        <input id="startCity" ng-model="currentTransit.route.startCity.cityName" name="startCity" type="text"
+               placeholder="Miasto wyjazdu" class="form-control input-md" required="">
         <span class="help-block">Search place, where you will start your trip</span>
     </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-    <label class="col-md-4 control-label" for="endCity">End City</label>
+    <label class="col-md-4 control-label" for="endCity">Miasto przyjazdu</label>
     <div class="col-md-5">
-        <input id="endCity" name="endCity" ng-model="currentTransit.route.endCity.cityName" type="text" placeholder="End City" class="form-control input-md" required="">
+        <input id="endCity" name="endCity" ng-model="currentTransit.route.endCity.cityName" type="text"
+               placeholder="Miasto przyjazdu" class="form-control input-md" required="">
         <span class="help-block">Search place, where you will end your trip</span>
     </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-    <label class="col-md-4 control-label" for="date">Date</label>
+    <label class="col-md-4 control-label" for="date">Data</label>
     <div class="col-md-5">
-        <input id="date" ng-model="currentTransit.startDate" name="date" type="text" placeholder="Date" class="form-control input-md" required="">
+        <input id="date" ng-model="currentTransit.startDate" name="date" type="text" placeholder="Data"
+               class="form-control input-md" required="">
         <span class="help-block">Start date of trip (format: dd-MM-yyyy HH:mm, eg. 11-02-2015 12:10)</span>
     </div>
 </div>

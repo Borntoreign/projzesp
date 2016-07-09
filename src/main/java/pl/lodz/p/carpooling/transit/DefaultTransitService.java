@@ -16,6 +16,7 @@ import pl.lodz.p.carpooling.user.UserService;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -23,6 +24,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class DefaultTransitService implements TransitService {
+
+    private static final Logger LOG = Logger.getLogger(DefaultTransitService.class.getName());
 
     private TransitRepository transitRepository;
 
@@ -47,6 +50,7 @@ public class DefaultTransitService implements TransitService {
 
     @Override
     public Transit create(String username, String startDate, String startCityName, String endCityName, String cost) {
+        LOG.finest("Tworzenie nowego przejzadu");
         Route route = getRoute(startCityName, endCityName);
         User driver = userService.findUserByUsername(username);
         LocalDateTime date = LocalDateTime.parse(startDate, ISODateTimeFormat.dateTime());
@@ -57,6 +61,7 @@ public class DefaultTransitService implements TransitService {
             transit.setCostPerPerson(transit.getCost().divide(new BigDecimal(transit.getPassengers().size() + 1)));
         }
         transitRepository.save(transit);
+        LOG.finest("Tworzenie nowego przejzadu: Koniec");
         return transit;
     }
 

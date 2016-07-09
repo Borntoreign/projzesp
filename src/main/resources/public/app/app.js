@@ -3,6 +3,7 @@
 (function () {
     angular
         .module('carpooling', [
+            'ngMap',
             'carpooling.auth',
             'carpooling.transit',
             'carpooling.search',
@@ -18,6 +19,6 @@
             'ui.bootstrap.datetimepicker',
             'ui.validate',
             'ui.bootstrap.dateparser',
-            'ui.bootstrap.position'
+            'ui.bootstrap.position',
         ]);
 }());

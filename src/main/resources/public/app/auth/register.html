@@ -1,7 +1,7 @@
 <section>
     <div class="modal-header">
         <a class="glyphicon glyphicon-remove pull-right btn-cancel" ng-click="cancel()"></a>
-        <h3 class="modal-title">Register</h3>
+        <h3 class="modal-title">Zarejestruj się</h3>
     </div>
     <div class="modal-body">
         <div ng-class="messageClass" role="alert">{{message}}</div>
@@ -9,7 +9,7 @@
             <fieldset>
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="username">Username</label>
+                    <label class="col-md-4 control-label" for="username">Nazwa użytkownika (Login)</label>
                     <div class="col-md-6">
                         <input id="username" ng-model="login" name="username" type="text" placeholder="Username" class="form-control input-md" required="">
                     </div>
@@ -17,7 +17,7 @@
 
                 <!-- Password input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="password">Password</label>
+                    <label class="col-md-4 control-label" for="password">Hasło</label>
                     <div class="col-md-6">
                         <input id="password" ng-model="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
                         <span class="help-block">Your password must contains at least one number</span>
@@ -26,7 +26,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="firstName">First Name</label>
+                    <label class="col-md-4 control-label" for="firstName">Imię</label>
                     <div class="col-md-6">
                         <input id="firstName" ng-model="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md" required="">
                     </div>
@@ -34,7 +34,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="lastName">Last Name</label>
+                    <label class="col-md-4 control-label" for="lastName">Nazwisko</label>
                     <div class="col-md-6">
                         <input id="lastName" ng-model="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="">
                     </div>

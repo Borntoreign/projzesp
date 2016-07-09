@@ -2,52 +2,52 @@
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Transit</legend>
+        <legend>Przejazd</legend>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="startCity">Start City</label>
+            <label class="col-md-4 control-label" for="startCity">Misto wyjazdu</label>
             <div class="col-md-5 form-text">
                 <div id="startCity" name="startCity">{{currentTransit.route.startCity.cityName}}</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="endCity">End City</label>
+            <label class="col-md-4 control-label" for="endCity">Misto przyjazdu</label>
             <div class="col-md-5 form-text">
                 <div id="endCity" name="endCity">{{currentTransit.route.endCity.cityName}}</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="startDate">Date</label>
+            <label class="col-md-4 control-label" for="startDate">Data</label>
             <div class="col-md-5 form-text">
                 <div id="startDate" name="startDate">{{currentTransit.startDate}}</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="cost">Cost</label>
+            <label class="col-md-4 control-label" for="cost">Koszt</label>
             <div class="col-md-5 form-text">
                 <div id="cost" name="cost">{{currentTransit.cost}}</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="costPerPerson">Per person</label>
+            <label class="col-md-4 control-label" for="costPerPerson">Koszt na osobę</label>
             <div class="col-md-5 form-text">
                 <div id="costPerPerson" name="costPerPerson">{{currentTransit.costPerPerson}}</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="driver">Driver</label>
+            <label class="col-md-4 control-label" for="driver">Kierowca</label>
             <div class="col-md-5 form-text">
                 <a id="driver" name="driver" ui-sref="user.details({id:currentTransit.driver.id})">{{currentTransit.driver.firstName}} {{currentTransit.driver.lastName}}</a>
             </div>
         </div>
 
         <div class="form-group" ng-if="currentTransit.passengers.length > 0">
-            <label class="col-md-4 control-label" for="passengers">Passengers</label>
+            <label class="col-md-4 control-label" for="passengers">Pasażerowie</label>
             <div class="col-md-5 form-text">
                 <div id="passengers" name="passengers" ng-repeat="passenger in currentTransit.passengers">
                     <div>{{passenger.firstName}} {{passenger.lastName}}</div>
@@ -59,23 +59,33 @@
             <label class="col-md-4 control-label" for="passengers">Passengers</label>
             <div class="col-md-5 form-text">
                 <div id="no-passengers" name="passengers">
-                    No passengers to display
+                    Brak pasażerów
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <button id="deleteButton" ng-click="deleteTransit(currentTransit)" name="deleteButton" class="btn btn-success" ng-show="canEdit(currentTransit)">Delete</button>
-                <button id="archiveButton" ng-click="archiveTransit(currentTransit)" name="archiveButton" class="btn btn-success" ng-show="canArchive(currentTransit)">Archive</button>
-                <button id="redoButton" ui-sref="transit.redo({id:currentTransit.id})" name="redoButton" class="btn btn-success" ng-show="canArchive(currentTransit)" >Redo</button>
-                <button id="editButton" ui-sref="transit.edit({id:currentTransit.id})" name="editButton" class="btn btn-success" ng-show="canEdit(currentTransit)">Edit</button>
-                <button id="reserveButton" ng-click="reserveTransit(currentTransit)" name="reserveButton" class="btn btn-success" ng-show="canReserve(currentTransit)">Reserve</button>
+                <button id="deleteButton" ng-click="deleteTransit(currentTransit)" name="deleteButton"
+                        class="btn btn-success" ng-show="canEdit(currentTransit)">Usuń
+                </button>
+                <button id="archiveButton" ng-click="archiveTransit(currentTransit)" name="archiveButton"
+                        class="btn btn-success" ng-show="canArchive(currentTransit)">Archiwizuj
+                </button>
+                <button id="editButton" ui-sref="transit.edit({id:currentTransit.id})" name="editButton"
+                        class="btn btn-success" ng-show="canEdit(currentTransit)">Edytuj
+                </button>
+                <button id="reserveButton" ng-click="reserveTransit(currentTransit)" name="reserveButton"
+                        class="btn btn-success" ng-show="canReserve(currentTransit)">Rezerwuj
+                </button>
+                <button id="redoButton" ui-sref="transit.redo({id:currentTransit.id})" name="redoButton"
+                        class="btn btn-success" ng-show="canArchive(currentTransit)">Utwórz jeszcze raz
+                </button>
             </div>
         </div>
         <div map-lazy-load="https://maps.google.com/maps/api/js">
-            <ng-map zoom="14" center="1135 Karamea-Kohaihai Rd, Kahurangi National Park, Tasman" style="height:90%">
+            <ng-map zoom="5" center="Poland" style="height:100%">
                 <directions
-                        draggable="true"
+                        draggable="false"
                         travel-mode="DRIVING"
                         origin={{currentTransit.route.startCity.cityName}}
                         destination={{currentTransit.route.endCity.cityName}}>

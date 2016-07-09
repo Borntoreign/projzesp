@@ -1,45 +1,48 @@
 <form class="form-horizontal" name="editemail" role="form">
     <fieldset>
-        <legend>Edit email address</legend>
+        <legend>Edytuj adres email</legend>
         <div ng-hide="!alertMessage" ng-class="alertMessageClass" role="alert">{{alertMessage}}</div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="email">Current email address</label>
+            <label class="col-md-4 control-label" for="email">Aktualny adres email</label>
             <div class="col-md-5">
                 <div id="email" name="email" class="form-control-static">{{$root.user.user.email}}</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label required-field" for="newEmail">New email address</label>
+            <label class="col-md-4 control-label required-field" for="newEmail">Nowy adres email</label>
             <div class="col-md-5">
                 <input id="newEmail" name="newEmail" ng-model="profile.newEmail" type="email" placeholder="New email address" class="form-control input-md" required="" ui-validate="'$value!=user.user.email'" />
-                <span class="help-block">Enter your new email address here. You must be able to receive email sent to this address.</span>
-                <span class="text-danger" ng-show="editemail.newEmail.$error.email">You must enter valid email addresses.</span>
-                <span class="text-danger" ng-show="editemail.newEmail.$error.validator">That email address is already in use.</span>
+                <span class="help-block">Wpisz swój nowy adres email. Musisz być w stanie odbierać e-maile wysłane na ten adres.</span>
+                <span class="text-danger"
+                      ng-show="editemail.newEmail.$error.email">Musisz podać poprawny adres e-mail.</span>
+                <span class="text-danger" ng-show="editemail.newEmail.$error.validator">Ten adres email jest już w użyciu.</span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label required-field" for="confirmNewEmail">Confirm email address</label>
+            <label class="col-md-4 control-label required-field" for="confirmNewEmail">Potwierdź nowy adres
+                email</label>
             <div class="col-md-5">
                 <input id="confirmNewEmail" name="confirmNewEmail" ng-model="profile.confirmNewEmail" type="email" placeholder="Confirm email address" class="form-control input-md" required="" ui-validate="'$value==profile.newEmail'" ui-validate-watch="'profile.newEmail'"/>
-                <span class="text-danger" ng-show="!editemail.newEmail.$invalid && editemail.confirmNewEmail.$error.validator">The entered email addresses do not match.</span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label required-field" for="currentPassword">Current password</label>
+            <label class="col-md-4 control-label required-field" for="currentPassword">Hasło</label>
             <div class="col-md-5">
                 <input id="currentPassword" name="currentPassword" ng-model="profile.currentPassword" type="password" placeholder="Current password" class="form-control input-md" required="" />
-                <span class="help-block">You must enter your current password if you wish to change your email address.</span>
+                <span class="help-block">Musisz podać swoje aktualne hasło, jeśli chcesz zmienić swój adres e-mail.</span>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="saveButton"></label>
             <div class="col-md-4">
-                <button ng-disabled="editemail.$invalid" id="saveButton" ng-click="updateEmail(profile)" name="saveButton" class="btn btn-success">Save new mail</button>
+                <button ng-disabled="editemail.$invalid" id="saveButton" ng-click="updateEmail(profile)"
+                        name="saveButton" class="btn btn-success">Zapisz
+                </button>
             </div>
         </div>
     </fieldset>

@@ -2,8 +2,8 @@
     <thead>
     <tr>
         <th class="text-center">Lp.</th>
-		<th class="text-center">Reservation Date</th>
-        <th class="text-center">Action</th>
+        <th class="text-center">Data rezerwacji</th>
+        <th class="text-center">Akcje</th>
     </tr>
     </thead>
     <tbody>
@@ -11,8 +11,12 @@
             <td class="text-center">{{$index+1}}</td>
             <td class="text-center">{{reservation.date | date:'yyyy-MM-dd HH:mm'}}</td>
             <td class="text-center">
-            	<button id="detailsButton" name="detailsButton" class="btn btn-success" ui-sref="transit.details({id:reservation.transit.id})">Details transit</button>
-            	<button id="resignButton" name="resignButton" class="btn btn-success" ng-click="deleteReservation(reservation)">Resign</button>
+                <button id="detailsButton" name="detailsButton" class="btn btn-success"
+                        ui-sref="transit.details({id:reservation.transit.id})">Szczegóły przejazdu
+                </button>
+                <button id="resignButton" name="resignButton" class="btn btn-success"
+                        ng-click="deleteReservation(reservation)">Zrezygnuj
+                </button>
             </td>
         </tr>
     </tbody>

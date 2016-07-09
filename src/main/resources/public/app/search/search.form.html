@@ -6,36 +6,44 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="startCity">Start City</label>
+            <label class="col-md-4 control-label" for="startCity">Miasto startowe</label>
             <div class="col-md-5">
-                <input id="startCity" ng-model="searchObject.startCity" name="startCity" type="text" placeholder="Start City" class="form-control input-md" required="">
+                <input id="startCity" ng-model="searchObject.startCity" name="startCity" type="text"
+                       placeholder="Miasto startowe" class="form-control input-md" required="">
                 <span class="help-block">Put place, where you will start your trip</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="endCity">End City</label>
+            <label class="col-md-4 control-label" for="endCity">Miasto końcowe</label>
             <div class="col-md-5">
-                <input id="endCity" ng-model="searchObject.endCity" name="endCity" type="text" placeholder="End City" class="form-control input-md" required="">
+                <input id="endCity" ng-model="searchObject.endCity" name="endCity" type="text"
+                       placeholder="Miasto końcowe" class="form-control input-md" required="">
                 <span class="help-block">Put place, where you will end your trip</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Start Date <small>(Optional)</small></label>
+            <label class="col-md-4 control-label" for="date">Data początkowa
+                <small>(Opcjonalne)</small>
+            </label>
             <div class="col-md-5">
-                <input id="date" name="date" ng-model="searchObject.date" type="text" placeholder="Date" class="form-control input-md">
+                <input id="date" name="date" ng-model="searchObject.date" type="text" placeholder="Data"
+                       class="form-control input-md">
                 <span class="help-block">Put date of your trip (format: dd-MM-yyyy, eg. 12-10-2015)</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="time">Start Time <small>(Optional)</small></label>
+            <label class="col-md-4 control-label" for="time">Czas początkowy
+                <small>(Opcjonalne)</small>
+            </label>
             <div class="col-md-5">
-                <input id="time" name="time" ng-model="searchObject.time" type="text" placeholder="Time" class="form-control input-md">
+                <input id="time" name="time" ng-model="searchObject.time" type="text" placeholder="12:30"
+                       class="form-control input-md">
                 <span class="help-block">Put time of your trip (format HH:mm, eg. 12:10)</span>
             </div>
         </div>

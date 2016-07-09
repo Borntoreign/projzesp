@@ -15,20 +15,20 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
             <ul class="nav navbar-nav navbar-right" ng-controller="AuthController">
                 <li ng-if="isAuthorize()">
-                    <a href="#/settings">Settings</a>
+                    <a href="#/settings">Ustawienia</a>
                 </li>
                 <li ng-if="isAuthorize()">
-                    <a ui-sref="user.details({id:user.user.id})">Profile</a>
+                    <a ui-sref="user.details({id:user.user.id})">Profil</a>
                 </li>
                 <li ng-if="isNotAuthorize()">
                     <login/>
                 </li>
                 <form class="navbar-form navbar-right">
                     <li ng-if="isNotAuthorize()">
-                        <button class="btn btn-primary btn-success" ng-click="openRegister('lg')">Register</button>
+                        <button class="btn btn-primary btn-success" ng-click="openRegister('lg')">Zarejestruj</button>
                     </li>
                     <li ng-if="isAuthorize()">
-                        <button type="button" class="btn btn-primary btn-success" ng-click="logout('/')">Log out
+                        <button type="button" class="btn btn-primary btn-success" ng-click="logout('/')">Wyloguj się
                         </button>
                     </li>
                 </form>

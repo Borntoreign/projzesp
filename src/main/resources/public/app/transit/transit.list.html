@@ -1,15 +1,15 @@
 <form class="form-horizontal" name="createForm">
     <fieldset>
-        <legend>You planned {{transits.length}} transits.</legend>
+        <legend>Zaplanowałęś {{transits.length}} przejazdów.</legend>
         <div id="transits" ng-init="getMyTransit()">
             <button id="showArchivedButton" ng-click="showArchived()" name="showArchivedButton" class="btn btn-success">
-                Show only archived transits
+                Pokaż tylko zarchiwizowane
             </button>
-            <button id="showAllButton" ng-click="showAll()" name="showAllButton" class="btn btn-success">Show all
-                transits
+            <button id="showAllButton" ng-click="showAll()" name="showAllButton" class="btn btn-success">Pokaż wszystkie
+                przejazdy
             </button>
             <button id="showActualButton" ng-click="showUpToDateTransits()" name="showActualButton"
-                    class="btn btn-success">Show actual transits
+                    class="btn btn-success">Pokaż tylko aktualne
             </button>
             <div class="transit"
                  ng-repeat="transit in transits
@@ -19,14 +19,14 @@
                  ui-sref="transit.details({id:transit.id})">
                 <div class="transit-info">
                     <div class="transit-route">
-                        <label>Route:</label>
+                        <label>Trasa:</label>
                         {{transit.route.startCity.cityName}}
                         <span class="transit-car"/>
                         {{transit.route.endCity.cityName}}
                     </div>
-                    <div><label>Date:</label> {{transit.startDate}}</div>
-                    <div><label>Cost:</label> {{transit.cost}}</div>
-                    <div><label>Role:</label> {{getRole(transit)}}</div>
+                    <div><label>Data:</label> {{transit.startDate}}</div>
+                    <div><label>Koszt:</label> {{transit.cost}}</div>
+                    <div><label>Rola:</label> {{getRole(transit)}}</div>
                 </div>
                 <div class="transit-remarks">
                     <span class="transit-archived" ng-show="transit.archived"></span>
